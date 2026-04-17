@@ -27,7 +27,7 @@
         /* --- NAVIGATION --- */
         nav {
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
             padding: 40px 5%;
             position: relative;
@@ -35,11 +35,14 @@
         }
 
         .hamburger {
+            position: absolute;
+            left: 5%;
+            top: 50%;
+            transform: translateY(-50%);
             display: flex;
             flex-direction: column;
             gap: 5px;
             cursor: pointer;
-            flex: 1;
             z-index: 1001;
         }
         .hamburger span {
@@ -57,16 +60,18 @@
             color: var(--charcoal);
             letter-spacing: 0.05em;
             text-align: center;
-            flex: 2;
             white-space: nowrap; 
         }
 
         .nav-icons {
+            position: absolute;
+            right: 5%;
+            top: 50%;
+            transform: translateY(-50%);
             display: flex;
             gap: 20px;
             align-items: center;
             justify-content: flex-end;
-            flex: 1;
         }
 
         .nav-icons a, .search-trigger {
@@ -119,41 +124,49 @@
         }
 
         /* --- HERO --- */
-        .hero {
+        .full-page-hero {
+            width: 100%;
+            height: 90vh;
+            position: relative;
+            overflow: hidden;
+            background-size: cover;
+            background-position: center;
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
-            padding: 20px 10% 80px;
-        }
-
-        .hero-text h2 {
+        }.hero-headline-overlay {
             font-family: var(--serif);
             font-size: clamp(3rem, 6vw, 5.5rem);
             font-style: italic;
             font-weight: 300;
-            line-height: 0.85;
-            margin-bottom: 25px;
-        }
-
-        .hero-image-container {
-            width: 30%;
-            height: 55vh;
-            overflow: hidden;
-        }
-
-        .hero-img { width: 100%; height: 100%; object-fit: cover; }
-.section-headline {
-            font-family: var(--serif);
-            font-size: 32px;
-            font-style: italic;
+            color: var(--cream);
             text-align: center;
-            margin: 40px 0 20px;
-            font-weight: 300;
+            line-height: 0.9;
+            z-index: 2;
         }
 
-        /* --- GALLERY / SLIDER --- */
+        /* --- COLLECTION DETAILS --- */
+        .collection-subheadline-section {
+            padding: 80px 10% 40px;
+            text-align: center;
+        }
+        .collection-subheadline-section h3 {
+            font-family: var(--serif);
+            font-size: 36px;
+            font-style: italic;
+            font-weight: 300;
+            margin-bottom: 20px;
+        }
+        .collection-subheadline-section p {
+            font-size: 14px;
+            opacity: 0.8;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* --- GALLERY --- */
         .gallery-section {
-            padding: 20px 5% 60px;
+            padding: 20px 5% 80px;
             text-align: center;
         }
 
@@ -163,8 +176,8 @@
             overflow-x: auto;
             justify-content: center;
             scrollbar-width: none;
-            margin-bottom: 40px;
-            scroll-snap-type: x mandatory; /* Enables swipe effect */
+            margin-bottom: 60px;
+            scroll-snap-type: x mandatory;
         }
 
         .swap-grid::-webkit-scrollbar { display: none; }
@@ -182,6 +195,26 @@
             transition: opacity 0.3s;
         }
 
+        /* --- BUTTON STYLES WITH LINE --- */
+        .btn-underlined {
+            display: inline-block;
+            text-decoration: none;
+            color: var(--charcoal);
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--charcoal);
+            transition: opacity 0.3s;
+            cursor: pointer;
+            background: none;
+            border-top: none;
+            border-left: none;
+            border-right: none;
+            font-family: var(--sans);
+        }
+        .btn-underlined:hover { opacity: 0.6; }
+
         /* --- FOUNDER SECTION --- */
         .founder-section {
             padding: 100px 10%;
@@ -193,9 +226,8 @@
         }
         .founder-image { width: 100%; height: 500px; overflow: hidden; }
         .founder-image img { width: 100%; height: 100%; object-fit: cover; }
-        .founder-content { padding-bottom: 20px; }
         .founder-quote { font-family: var(--serif); font-size: 36px; font-style: italic; line-height: 1.2; margin-bottom: 30px; font-weight: 300; }
-        .founder-signature { display: block; font-family: var(--serif); font-style: italic; font-size: 18px; opacity: 0.8; margin-bottom: 15px; }
+        .founder-signature { display: block; font-family: var(--serif); font-style: italic; font-size: 18px; opacity: 0.8; margin-bottom: 25px; }
 
         /* --- MONOGRAM SECTION --- */
         .monogram-section {
@@ -205,18 +237,19 @@
             align-items: center;
             justify-content: space-between;
             gap: 60px;
+            border-top: 1px solid rgba(51, 51, 51, 0.1);
         }
         .monogram-content h3 { font-family: var(--serif); font-size: 42px; font-style: italic; font-weight: 300; margin-bottom: 15px; }
         .monogram-tagline { font-size: 13px; text-transform: uppercase; letter-spacing: 0.2em; margin-bottom: 40px; opacity: 0.7; }
         .comparison-item { margin-bottom: 25px; }
         .comparison-label { font-family: var(--serif); font-size: 14px; font-style: italic; opacity: 0.5; display: block; }
         .comparison-text { font-family: var(--serif); font-size: 26px; }
-        .stamped-text { font-size: 11px; text-transform: uppercase; letter-spacing: 0.4em; margin: 30px 0; display: block; opacity: 0.6; }
+ .stamped-text { font-size: 11px; text-transform: uppercase; letter-spacing: 0.4em; margin: 30px 0; display: block; opacity: 0.6; }
         .monogram-image { flex: 0 0 35%; height: 450px; overflow: hidden; }
         .monogram-image img { width: 100%; height: 100%; object-fit: cover; }
 
         /* --- UNIVERSE SECTION --- */
-        .universe-header { text-align: center; margin-bottom: 40px; width: 100%; }
+        .universe-header { text-align: center; margin: 80px 0 40px; width: 100%; }
         .universe-header h2 { font-family: var(--serif); font-size: 42px; font-style: italic; font-weight: 300; margin-bottom: 15px; }
         .universe-header p { font-size: 12px; text-transform: uppercase; letter-spacing: 0.25em; opacity: 0.6; }
 
@@ -227,53 +260,36 @@
             border-top: 1px solid rgba(51, 51, 51, 0.1);
             text-align: center;
         }
+        .payment-methods {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+        .payment-methods img { height: 22px; width: auto; }
+
+        .social-icons { display: flex; justify-content: center; gap: 25px; margin-bottom: 60px; }
+        .social-icons a { color: var(--charcoal); opacity: 0.8; transition: 0.3s; }
+        .social-icons a:hover { opacity: 0.5; }
+
         .footer-links { display: flex; justify-content: center; gap: 30px; margin-bottom: 40px; flex-wrap: wrap; }
         .footer-links a { text-decoration: none; color: var(--charcoal); font-size: 11px; text-transform: uppercase; letter-spacing: 0.15em; opacity: 0.6; }
-        .social-icons { display: flex; justify-content: center; gap: 25px; margin-bottom: 60px; }
-        .social-icons a { color: var(--charcoal); opacity: 0.8; }
+        
         .copyright { font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; opacity: 0.4; }
-/* --- BUTTONS & LIGHTBOX --- */
-        .btn-minimal {
-            display: inline-block;
-            text-decoration: none;
-            color: var(--charcoal);
-            border-bottom: 1px solid var(--charcoal); /* Line under button */
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 0.2em;
-            padding-bottom: 6px;
-            transition: opacity 0.3s;
-            cursor: pointer;
-            background: none;
-            border-top: none;
-            border-left: none;
-            border-right: none;
-            font-family: var(--sans);
-        }
+
+        /* --- LIGHTBOX --- */
         .lightbox { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: var(--cream); display: none; z-index: 2000; justify-content: center; align-items: center; }
-        .lightbox-close { position: absolute; top: 40px; right: 40px; background: none; border: none; font-size: 40px; cursor: pointer; color: var(--charcoal); }
+        .lightbox-close { position: absolute; top: 40px; right: 40px; background: none; border: none; font-size: 40px; cursor: pointer; }
         .lb-img { max-width: 80%; max-height: 80vh; object-fit: contain; }
 
-        /* --- RESPONSIVE MOBILE FIXES --- */
         @media (max-width: 1024px) {
-            .swap-grid { 
-                justify-content: flex-start; 
-                padding: 0 10%; /* Center the single image visually */
-            }
-            .swap-card { 
-                flex: 0 0 100%; /* Shows exactly one picture at a time */
-            }
-            .swap-card img {
-                height: 60vh; /* Taller, fuller images on mobile */
-            }
-            .hero { flex-direction: column-reverse; text-align: center; padding: 40px 5%; }
-            .hero-image-container { width: 100%; height: 40vh; margin-bottom: 30px; }
-            .founder-section { grid-template-columns: 1fr; padding: 60px 5%; text-align: center; gap: 40px; }
-            .founder-image { order: 1; height: 400px; }
-            .founder-content { order: 2; }
-            .monogram-section { flex-direction: column; padding: 60px 5%; text-align: center; }
-            .monogram-content { order: 1; margin-bottom: 40px; }
-            .monogram-image { order: 2; width: 100%; height: 350px; }
+            .full-page-hero { height: 70vh; }
+            .hero-headline-overlay { font-size: 2.8rem; }
+            .swap-card { flex: 0 0 100%; }
+            .founder-section { grid-template-columns: 1fr; padding: 60px 5%; }
+            .monogram-section { flex-direction: column; padding: 60px 5%; }
         }
     </style>
 </head>
@@ -304,18 +320,17 @@
     </div>
 
     <main>
-        <section class="hero">
-            <div class="hero-text">
-                <h2>The last <br>vanity case <br>you'll need.</h2>
-                <h3 class="section-headline">Our Collection</h3>
-                <p style="font-size:14px; opacity: 0.8; margin-bottom: 30px;">Designed for longevity. Made for your initials.</p>
-                <a href="collections.html" class="btn-minimal">Discover the Collection</a>
-            </div>
-            <div class="hero-image-container"><img src="1.jpg" alt="Hero" class="hero-img"></div>
+        <section class="full-page-hero" style="background-image: url('1.jpg');">
+            <h1 class="hero-headline-overlay">the last <br>vanity case <br>you'll need.</h1>
         </section>
-<section class="gallery-section">
+<section class="collection-subheadline-section">
+            <h3>Our Collection</h3>
+            <p>Designed for longevity. Made for your Initials.</p>
+        </section>
+
+        <section class="gallery-section">
             <div class="swap-grid" id="swap-grid-1"></div>
-            <a href="collections.html" class="btn-minimal">Discover the Collection</a>
+            <a href="collections.html" class="btn-underlined">Discover the Collection</a>
         </section>
 
         <section class="founder-section">
@@ -324,7 +339,7 @@
                 <p class="founder-quote">"I started Maison en Cuir with a single vision: to create the leather essentials I couldn't find elsewhere."</p>
                 <p style="font-size: 15px; line-height: 1.8; margin-bottom: 40px; opacity: 0.9;">Juliette’s design philosophy is rooted in architectural longevity and handcrafted intimacy.</p>
                 <span class="founder-signature">— Juliette</span>
-                <a href="about.html" class="btn-minimal">Read More</a>
+                <a href="about.html" class="btn-underlined">Read More</a>
             </div>
         </section>
 
@@ -343,7 +358,7 @@
                     </div>
                 </div>
                 <span class="stamped-text">Stamped. Always.</span>
-                <a href="collections.html" class="btn-minimal">Add your initials</a>
+                <a href="collections.html" class="btn-underlined">Add your initials</a>
             </div>
             <div class="monogram-image"><img src="8.jpg" alt="Stamping"></div>
         </section>
@@ -358,22 +373,27 @@
     </main>
 
     <footer>
+        <div class="payment-methods">
+            <img src="p1.png" alt="Payment"><img src="p2.png" alt="Payment"><img src="p3.png" alt="Payment"><img src="p4.png" alt="Payment"><img src="p5.png" alt="Payment"><img src="p6.png" alt="Payment"><img src="p7.png" alt="Payment"><img src="p8.png" alt="Payment"><img src="p9.png" alt="Payment"><img src="p10.png" alt="Payment"><img src="p11.png" alt="Payment"><img src="p12.png" alt="Payment">
+        </div>
+
         <div class="social-icons">
             <a href="https://www.tiktok.com/@maisonencuir" target="_blank">
                 <svg width="20" height="20" fill="currentColor" viewBox="0 0 448 512"><path d="M448 209.91a210.06 210.06 0 0 1-122.77-39.25V349.38A162.55 162.55 0 1 1 185 188.31V278.2a74.62 74.62 0 1 0 52.23 71.18V0l88 0a121.18 121.18 0 0 0 1.86 22.17A122.18 122.18 0 0 0 381 102.39a121.43 121.43 0 0 0 67 20.14Z"/></svg>
             </a>
             <a href="https://www.instagram.com/maisonencuir" target="_blank">
-                <svg width="20" height="20" fill="currentColor" viewBox="0 0 448 512"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg>
+                <svg width="20" height="20" fill="currentColor" viewBox="0 0 448 512"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58
+ 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg>
             </a>
         </div>
-<div class="footer-links">
+
+        <div class="footer-links">
             <a href="privecy.html">Privacy Policy</a>
             <a href="legal.html">Legal Notice</a>
             <a href="refund.html">Refund Policy</a>
             <a href="shipping.html">Shipping Policy</a>
             <a href="terms.html">Terms of Service</a>
         </div>
-
         <p class="copyright">&copy; 2026 Maison en Cuir. All rights reserved.</p>
     </footer>
 
@@ -385,9 +405,8 @@
     <script>
         const lb = document.getElementById('lightbox');
         const lbImg = document.getElementById('lb-img');
-
         const items1 = ['1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg'];
-        const items2 = ['6.jpg', '7.jpg', '8.jpg', '9.jpg', '10.jpg'];
+        const items2 = ['6.jpg', '7.jpg', '11.jpg', '9.jpg', '10.jpg'];
 
         function populateGallery(gridId, images) {
             const grid = document.getElementById(gridId);
@@ -397,35 +416,22 @@
                 card.className = 'swap-card';
                 const img = document.createElement('img');
                 img.src = src;
-                img.alt = "Gallery item";
                 img.onclick = function() { openLB(src); };
                 card.appendChild(img);
                 grid.appendChild(card);
             });
         }
 
-        window.onload = function() {
-            populateGallery('swap-grid-1', items1);
-            populateGallery('swap-grid-2', items2);
+        window.onload = function() { 
+            populateGallery('swap-grid-1', items1); 
+            populateGallery('swap-grid-2', items2); 
         };
-
-        function openLB(src) {
-            lbImg.src = src;
-            lb.style.display = 'flex';
-        }
-
+        function openLB(src) { lbImg.src = src; lb.style.display = 'flex'; }
         function closeLB() { lb.style.display = 'none'; }
-
         function toggleMenu() { document.getElementById('mobile-menu').classList.toggle('active'); }
-
         function toggleSearch() {
             var bar = document.getElementById('search-bar');
             bar.style.display = (bar.style.display === 'block') ? 'none' : 'block';
-            if(bar.style.display === 'block') bar.querySelector('input').focus();
-        }
-
-        function handleSearch(e) {
-            if (e.key === 'Enter') { alert('Searching for: ' + e.target.value); }
         }
     </script>
 </body>
