@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Olivia | Cinq Femmes, Cinq Vanités | Maison en Cuir</title>
+    <link rel="icon" type="image/png" href="1003380806.png">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Figtree:wght@300;400&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --cream: #FAF7F2;
+            --brand-brown: #5A402D; 
+            --serif: 'Cormorant Garamond', serif;
+            --sans: 'Figtree', sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            background-color: var(--cream); 
+            color: var(--brand-brown); 
+            font-family: var(--sans); 
+            -webkit-font-smoothing: antialiased;
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        /* --- NAVIGATION --- */
+        nav {
+            display: flex; justify-content: center; align-items: center;
+            padding: 40px 5%; position: relative; z-index: 1000;
+        }
+        .hamburger {
+            position: absolute; left: 5%; top: 50%; transform: translateY(-50%);
+            display: flex; flex-direction: column; gap: 5px; cursor: pointer; z-index: 1100;
+        }
+        .hamburger span { display: block; width: 22px; height: 1px; background-color: var(--brand-brown); }
+        .logo-nav { font-family: var(--serif); font-size: 28px; text-decoration: none; letter-spacing: 0.05em; color: var(--brand-brown); }
+        
+        .nav-icons { position: absolute; right: 5%; top: 50%; transform: translateY(-50%); display: flex; gap: 20px; align-items: center; }
+        .nav-icons a, .search-trigger { color: var(--brand-brown); text-decoration: none; cursor: pointer; display: flex; align-items: center; }
+
+        #search-bar {
+            position: absolute; top: 100%; left: 0; width: 100%; background: var(--cream);
+            padding: 20px 5%; display: none; border-bottom: 1px solid rgba(90, 64, 45, 0.1); z-index: 999;
+        }
+        #search-bar input { width: 100%; border: none; background: transparent; outline: none; color: var(--brand-brown); font-family: var(--serif); font-size: 24px; font-style: italic; }
+
+        /* --- MOBILE MENU --- */
+        .mobile-menu {
+            position: fixed; top: 0; left: -100%; width: 100%; height: 100%;
+            background: var(--cream); display: flex; flex-direction: column; 
+            justify-content: center; align-items: center; gap: 25px; transition: 0.5s; z-index: 1050;
+        }
+        .mobile-menu.active { left: 0; }
+        .mobile-menu a { font-family: var(--serif); font-size: 32px; text-decoration: none; color: var(--brand-brown); font-style: italic; }
+        .close-menu { position: absolute; top: 40px; left: 5%; font-size: 30px; cursor: pointer; font-family: var(--sans); }
+        .social-menu-links { margin-top: 30px; display: flex; gap: 20px; }
+        .social-menu-links a { font-size: 11px; text-transform: uppercase; letter-spacing: 0.2em; font-family: var(--sans); font-style: normal; border-bottom: 1px solid; }
+
+        /* --- EDITORIAL LAYOUT --- */
+        article { max-width: 900px; margin: 0 auto; padding: 40px 5% 100px; }
+        .breadcrumb { font-size: 10px; text-transform: uppercase; letter-spacing: 0.2em; opacity: 0.6; margin-bottom: 40px; display: block; text-align: center; }
+        .hero-img { width: 100%; height: auto; margin-bottom: 60px; }
+        
+        header.portrait-header { text-align: center; margin-bottom: 80px; }
+        header.portrait-header h1 { font-family: var(--serif); font-size: 48px; font-weight: 300; margin-bottom: 10px; }
+        .bio-subtitle { font-size: 14px; text-transform: uppercase; letter-spacing: 0.1em; opacity: 0.7; margin-bottom: 30px; display: block; }
+        .main-quote { font-family: var(--serif); font-size: 28px; font-style: italic; line-height: 1.4; max-width: 700px; margin: 0 auto; font-weight: 300; }
+ .intro-bio { font-size: 17px; line-height: 1.8; margin-bottom: 100px; max-width: 750px; margin-left: auto; margin-right: auto; }
+
+        .question-block { margin-bottom: 80px; }
+        .q-number { font-size: 11px; text-transform: uppercase; letter-spacing: 0.3em; opacity: 0.5; display: block; margin-bottom: 15px; }
+        .question-title { font-family: var(--serif); font-size: 24px; font-style: italic; margin-bottom: 25px; display: block; border-bottom: 1px solid rgba(90,64,45,0.1); padding-bottom: 10px; }
+        .question-text { font-weight: 600; font-size: 16px; margin-bottom: 20px; display: block; }
+        .answer-text { font-size: 16px; opacity: 0.9; }
+
+        .full-img { width: 100%; margin: 60px 0; }
+
+        /* --- VANITY FOCUS --- */
+        .vanity-focus { background: #F4F1EC; padding: 60px; margin-top: 100px; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+        .vanity-info h4 { font-family: var(--serif); font-size: 32px; font-style: italic; margin-bottom: 20px; }
+        .vanity-details { font-size: 14px; margin-bottom: 20px; }
+        .vanity-content-list { font-size: 15px; font-style: italic; opacity: 0.8; margin-bottom: 30px; }
+        .vanity-conclusion { font-family: var(--serif); font-size: 20px; border-top: 1px solid rgba(90,64,45,0.1); padding-top: 20px; }
+
+        /* --- CTA SECTION --- */
+        .cta-vanity { text-align: center; padding: 100px 5%; background: var(--cream); }
+        .cta-vanity h2 { font-family: var(--serif); font-size: 36px; font-style: italic; margin-bottom: 20px; }
+        .btn-primary { 
+            display: inline-block; font-family: var(--serif); font-size: 20px; font-style: italic; 
+            color: var(--brand-brown); text-decoration: none; border-bottom: 1px solid; padding-bottom: 5px;
+        }
+
+        /* --- PORTRAIT NAV --- */
+        .portrait-nav { display: flex; justify-content: space-between; padding: 60px 0; border-top: 1px solid rgba(90,64,45,0.1); margin-top: 60px; }
+        .portrait-nav a { text-decoration: none; color: var(--brand-brown); font-family: var(--serif); font-size: 18px; font-style: italic; }
+
+        /* --- NEWSLETTER --- */
+        .newsletter-section { background-color: #F4F1EC; padding: 80px 10%; text-align: center; }
+        .newsletter-section h3 { font-family: var(--serif); font-size: 32px; font-style: italic; margin-bottom: 15px; }
+        .newsletter-form { display: flex; flex-direction: column; align-items: center; gap: 20px; }
+        .newsletter-input { border: none; border-bottom: 1px solid var(--brand-brown); background: transparent; padding: 10px; width: 100%; max-width: 300px; outline: none; font-family: var(--sans); text-align: center; color: var(--brand-brown); }
+        .newsletter-btn { background: none; border: none; color: var(--brand-brown); text-transform: uppercase; font-size: 11px; letter-spacing: 0.1em; cursor: pointer; border-bottom: 1px solid; padding-bottom: 4px; }
+
+        footer { padding: 60px 10%; text-align: center; }
+        .footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; margin-bottom: 20px; }
+        .footer-links a { color: var(--brand-brown); text-decoration: none; font-size: 10px; text-transform: uppercase; }
+
+        @media (max-width: 768px) {
+            .vanity-focus { grid-template-columns: 1fr; padding: 30px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+        <a href="index.html" class="logo-nav">Maison en Cuir</a>
+        <div class="nav-icons">
+            <div class="search-trigger" onclick="toggleSearch()">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+ </div>
+            <a href="cart.html">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+            </a>
+        </div>
+        <div id="search-bar"><input type="text" placeholder="Search products..."></div>
+    </nav>
+
+    <div class="mobile-menu" id="mobile-menu">
+        <div class="close-menu" onclick="toggleMenu()">×</div>
+        <a href="index.html" onclick="toggleMenu()">Home</a>
+        <a href="collection.html" onclick="toggleMenu()">La Collection</a>
+        <a href="story.html" onclick="toggleMenu()">Notre Journal</a>
+        <a href="contact.html" onclick="toggleMenu()">Contact</a>
+        <div class="social-menu-links">
+            <a href="https://tiktok.com/@maisonencuir" target="_blank">TikTok</a>
+            <a href="https://instagram.com/maisonencuir" target="_blank">Instagram</a>
+        </div>
+    </div>
+
+    <article>
+        <span class="breadcrumb">Cinq Femmes, Cinq Vanités — Portrait Nº02</span>
+        
+        <img src="olivia.jpg" alt="Olivia portrait" class="hero-img">
+
+        <header class="portrait-header">
+            <h1>Olivia</h1>
+            <span class="bio-subtitle">Lidköping, Sweden — Writer</span>
+            <p class="main-quote">"Kindness is the key to life itself."</p>
+        </header>
+
+        <section class="intro-bio">
+            <p>Olivia Berg moves through the world softly and deliberately. She is twenty-something, studying to become a teacher from her family home in Lidköping, Sweden — a choice she describes simply as self-love. Her vanity sits somewhere near her books, her diary, and photographs of her bunnies. She is kind in the way that takes courage.</p>
+        </section>
+
+        <div class="question-block">
+            <span class="q-number">Nº01 — L'étagère, toujours</span>
+            <h3 class="question-title">Le Sanctuaire</h3>
+            <span class="question-text">What's always on your shelf, no matter what?</span>
+            <p class="answer-text">On my shelf is always my book. Reading, especially fantasy, is a big and important part of my life. A way for me to go on adventures, living hundreds of different lives. It is also a way for me to connect with myself on a deeper level, since you learn so much about yourself by reading. But the most important thing reading is to me, is that I can step into my own imaginary world, which makes the rest of the world pause. No matter what I am going through, or what is happening in the world around me, I can always step into the world of my imagination. Into the world that is only my own, my own sanctuary.</p>
+        </div>
+
+        <div class="question-block">
+            <span class="q-number">Nº02 — En ses propres mots</span>
+            <h3 class="question-title">L'identité</h3>
+            <span class="question-text">Three words the women who know you would use. Three words you'd use for yourself.</span>
+            <p class="answer-text">Kind. Loving. Creative. Both, the people around me would use the same words I'd use for myself. So let me go deeper into each one.</p>
+            <p class="answer-text" style="margin-top:20px;"><strong>Kind.</strong> Kindness is an incredibly underrated trait. I feel like it can often be mistaken for weakness. But true kindness is one of the most powerful things a person can have. Kindness to yourself, to the world around you, to humanity, to nature, to life. Kindness is the key to love, peace, and true beauty.</p>
+            <p class="answer-text" style="margin-top:20px;"><strong>Loving.</strong> I am a person who loves. I feel everything deeply and greet life with love. And when I say that, I do not mean everything is perfect — it is far from. But by choosing love every day, the world around you shifts.</p>
+ <p class="answer-text" style="margin-top:20px;"><strong>Creative.</strong> I love everything from singing, acting, crafting, painting, writing, to coming up with stories and poems. It is not the results that matter — it is the journey. That you do it because you love it. Because it makes your heart sing. Because it makes you feel like you.</p>
+        </div>
+
+        <div class="question-block">
+            <span class="q-number">Nº03 — Ce qui voyage avec elle</span>
+            <h3 class="question-title">Le Deuxième Cerveau</h3>
+            <span class="question-text">Is there something you carry with you everywhere — something small, maybe insignificant to others — that you'd never leave behind? What is it, and where did it come from?</span>
+            <p class="answer-text">My diary is never far away, since it literally is my second brain. Everything from to-do lists, to poems, me simping over fictional characters, brain dumps, existential questions, writings about my day, cursive writing practice, pressed flowers, random drawings, and so much more. There I can ramble about anything and everything, for as long or as short as I want to. I have been writing diaries since I was a kid, so my diaries are literally my brain and my life printed on paper.</p>
+        </div>
+
+        <img src="20.jpg" alt="Le journal d'Olivia" class="full-img">
+
+        <div class="question-block">
+            <span class="q-number">Nº04 — Ce chapitre</span>
+            <h3 class="question-title">Le Chapitre Actuel</h3>
+            <span class="question-text">What does your life look like right now — and what does it feel like? You don't have to make it sound beautiful. Just make it honest.</span>
+            <p class="answer-text">Right now I am studying to become a teacher. Actually I am doing online university. Even though I miss out on some things around uni life, being an online student is really a choice out of self love, a choice from prioritising myself. I love my home and my family, and being able to spend a few more years here is so valuable to me. Four words I would describe my life as right now: Intentional. Soft. Beautiful. Me.</p>
+            <p class="answer-text" style="margin-top:20px;">This past year I have started to connect to myself and life on a deeper level. I am for example diving deeper into what I have always wanted to do — to share my voice and inspire others. I am planning to start a YouTube channel, where I want to inspire young women to live a healthy and peaceful life that is aligned with who they are. I am a sensitive person. I see this as a gift since that makes me feel life and the world deeper — all the beauty of life. But with sensitivity also comes pain, anxiety, stress, and worrying. But the more I embrace my sensitivity, the easier it gets to handle and understand the difficult feelings. Embracing the sensitive person who I am means feeling a lot of pain, but more importantly feeling unlimited love, and the feeling of coming home to myself. It is like a superpower — a way for me to live deeper, to connect with my life and with life. I am finding more peace. I am starting to understand that whisper inside of me, and thanks to that I am living in more alignment with who I am and what I value in life.</p>
+        </div>
+
+        <div class="question-block">
+            <span class="q-number">Nº05 — Ce qu'elle garde dedans</span>
+            <h3 class="question-title">L'Intérieur</h3>
+            <span class="question-text">Open your vanity. Tell us everything that's inside. What does it say about you?</span>
+            <p class="answer-text">In my vanity are basically the only makeup products I own. I love doing my makeup, but nowadays I only put on makeup a couple of times a month. Since I have started connecting more to myself and living a life that feels aligned with who I am, I have realised that the most beautiful version of me is the real and natural me — without makeup.
+ But that does not mean that I always feel 100% comfortable without makeup, but I have come a long way since I started this journey. My self love has increased and I feel more connected to myself and my natural beauty. So when I do my makeup, it is not to cover something or to make me more beautiful — it is simply for the reason that I like doing my makeup. With that said, I own a few, but good quality makeup products that make me feel like me. Products that enhance my beauty, and not cover it.</p>
+            <p class="answer-text" style="margin-top:20px;">In my vanity I also have photos of my dear bunnies. Every time I open the vanity and see the photos, my heart flutters with joy and it always puts a smile on my lips. I am reminded that there is so much love around me, and that I shall never take the ones I love for granted. These little souls fill my life with so much love and beauty, and therefore they are an important part of my vanity — they remind me of what actually matters in life: love, connections, and thankfulness.</p>
+        </div>
+
+        <div class="vanity-focus">
+            <img src="21.jpg" alt="La vanité d'Olivia" style="width: 100%;">
+            <div class="vanity-info">
+                <h4>Sa vanité.</h4>
+                <p class="vanity-details">Coloris Mocha. Initiales O.B</p>
+                <p class="vanity-content-list">Inside: three brushes, a lip stain, a compact, a small mirror. Two Instax photographs of her bunnies, tucked into the lid. Every time she opens it, her heart flutters. She is reminded of what actually matters — love, connections, and thankfulness.</p>
+                <p class="vanity-conclusion">Chaque vanité raconte quelque chose. La sienne raconte une femme qui sait exactement ce dont elle a besoin.</p>
+            </div>
+        </div>
+
+        <section class="cta-vanity">
+            <img src="22.jpg" alt="Personnalisation" class="full-img">
+            <h2>La vôtre commence ici.</h2>
+            <p style="margin-bottom:30px;">Choisissez votre cuir. Choisissez vos initiales. Faites-en la vôtre.</p>
+            <a href="custom.html" class="btn-primary">Personnaliser ma vanité →</a>
+        </section>
+
+        <nav class="portrait-nav">
+            <a href="juliette.html">← Portrait précédent: Nº01</a>
+            <a href="story.html">Nº03 — À suivre... →</a>
+        </nav>
+    </article>
+
+    <section class="newsletter-section">
+        <h3>Rejoignez notre liste</h3>
+        <p style="margin-bottom: 25px; opacity: 0.8;">Occasional updates, new pieces, and select releases.</p>
+        <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Merci! You have been added to our list.');">
+            <input type="email" placeholder="Enter your email to join" class="newsletter-input" required>
+            <button type="submit" class="newsletter-btn">Join</button>
+        </form>
+    </section>
+
+    <footer>
+        <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="legal.html">Legal Notice</a>
+            <a href="refund.html">Refund Policy</a>
+            <a href="shipping.html">Shipping Policy</a>
+            <a href="terms.html">Terms of Service</a>
+        </div>
+        <p style="font-size: 10px; opacity: 0.5;">© 2026 Maison en Cuir. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function toggleMenu() { document.getElementById('mobile-menu').classList.toggle('active'); }
+        function toggleSearch() {
+            var s = document.getElementById('search-bar');
+            s.style.display = (s.style.display === 'block') ? 'none' : 'block';
+            if(s.style.display === 'block') s.querySelector('input').focus();
+        }
+    </script>
+</body>
+</html>

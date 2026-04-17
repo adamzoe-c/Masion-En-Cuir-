@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy | Maison en Cuir</title>
+    <link rel="icon" type="image/png" href="1003380806.png">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Figtree:wght@300;400&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --cream: #FAF7F2;
+            --brand-brown: #5A402D; 
+            --serif: 'Cormorant Garamond', serif;
+            --sans: 'Figtree', sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            background-color: var(--cream); 
+            color: var(--brand-brown); 
+            font-family: var(--sans); 
+            -webkit-font-smoothing: antialiased;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* --- NAVIGATION --- */
+        nav {
+            display: flex; justify-content: center; align-items: center;
+            padding: 40px 5%; position: relative; z-index: 1000;
+        }
+        .hamburger {
+            position: absolute; left: 5%; top: 50%; transform: translateY(-50%);
+            display: flex; flex-direction: column; gap: 5px; cursor: pointer; z-index: 1100;
+        }
+        .hamburger span { display: block; width: 22px; height: 1px; background-color: var(--brand-brown); }
+        .logo { font-family: var(--serif); font-size: 28px; text-decoration: none; letter-spacing: 0.05em; color: var(--brand-brown); }
+        
+        .nav-icons { position: absolute; right: 5%; top: 50%; transform: translateY(-50%); display: flex; gap: 20px; align-items: center; }
+        .nav-icons a, .search-trigger { color: var(--brand-brown); text-decoration: none; cursor: pointer; display: flex; align-items: center; }
+
+        #search-bar {
+            position: absolute; top: 100%; left: 0; width: 100%; background: var(--cream);
+            padding: 20px 5%; display: none; border-bottom: 1px solid rgba(90, 64, 45, 0.1); z-index: 999;
+        }
+        #search-bar input { width: 100%; border: none; background: transparent; outline: none; color: var(--brand-brown); font-family: var(--serif); font-size: 24px; font-style: italic; }
+
+        /* --- MOBILE MENU --- */
+        .mobile-menu {
+            position: fixed; top: 0; left: -100%; width: 100%; height: 100%;
+            background: var(--cream); display: flex; flex-direction: column; 
+            justify-content: center; align-items: center; gap: 25px; transition: 0.5s; z-index: 1050;
+        }
+        .mobile-menu.active { left: 0; }
+        .mobile-menu a { font-family: var(--serif); font-size: 32px; text-decoration: none; color: var(--brand-brown); font-style: italic; }
+        .close-menu { position: absolute; top: 40px; left: 5%; font-size: 30px; cursor: pointer; font-family: var(--sans); font-weight: 300; }
+        .social-menu-links { margin-top: 30px; display: flex; gap: 20px; }
+        .social-menu-links a { font-size: 11px; text-transform: uppercase; letter-spacing: 0.2em; font-family: var(--sans); font-style: normal; border-bottom: 1px solid; }
+
+        /* --- POLICY CONTENT --- */
+        .policy-container { max-width: 800px; margin: 0 auto; padding: 60px 5% 100px; }
+        h1 { font-family: var(--serif); font-size: 42px; font-style: italic; font-weight: 300; margin-bottom: 10px; text-align: center; }
+        .last-updated { text-align: center; font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 60px; opacity: 0.7; }
+        h2 { font-family: var(--serif); font-size: 24px; font-style: italic; margin: 45px 0 20px; font-weight: 400; }
+        p, li { font-size: 15px; margin-bottom: 18px; opacity: 0.9; }
+        ul { margin-left: 20px; margin-bottom: 20px; }
+ /* --- NEWSLETTER --- */
+        .newsletter-section { background-color: #F4F1EC; padding: 80px 10%; text-align: center; }
+        .newsletter-section h3 { font-family: var(--serif); font-size: 32px; font-style: italic; margin-bottom: 15px; }
+        .newsletter-form { display: flex; flex-direction: column; align-items: center; gap: 20px; }
+        .newsletter-input { border: none; border-bottom: 1px solid var(--brand-brown); background: transparent; padding: 10px; width: 100%; max-width: 300px; outline: none; font-family: var(--sans); text-align: center; color: var(--brand-brown); }
+        .newsletter-btn { background: none; border: none; color: var(--brand-brown); text-transform: uppercase; font-size: 11px; letter-spacing: 0.1em; cursor: pointer; border-bottom: 1px solid; padding-bottom: 4px; }
+
+        /* --- FOOTER --- */
+        footer { padding: 60px 10%; text-align: center; border-top: 1px solid rgba(90, 64, 45, 0.1); }
+        .footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; margin-bottom: 20px; }
+        .footer-links a { color: var(--brand-brown); text-decoration: none; font-size: 10px; text-transform: uppercase; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+        <a href="index.html" class="logo">Maison en Cuir</a>
+        <div class="nav-icons">
+            <div class="search-trigger" onclick="toggleSearch()">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+            </div>
+            <a href="cart.html">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+            </a>
+        </div>
+        <div id="search-bar"><input type="text" placeholder="Search our collection..."></div>
+    </nav>
+
+    <div class="mobile-menu" id="mobile-menu">
+        <div class="close-menu" onclick="toggleMenu()">&times;</div>
+        <a href="index.html" onclick="toggleMenu()">Home</a>
+        <a href="collection.html" onclick="toggleMenu()">Collections</a>
+        <a href="about.html" onclick="toggleMenu()">About us</a>
+        <a href="contact.html" onclick="toggleMenu()">Contact</a>
+        
+        <div class="social-menu-links">
+            <a href="https://tiktok.com/@maisonencuir" target="_blank">TikTok</a>
+            <a href="https://instagram.com/maisonencuir" target="_blank">Instagram</a>
+        </div>
+    </div>
+
+    <main class="policy-container">
+        <h1>Privacy Policy</h1>
+        <p class="last-updated">Last updated: December 4, 2025</p>
+
+        <p>Maison en Cuir operates this store and website, including all related information, content, features, tools, products and services, in order to provide you, the customer, with a curated shopping experience (the "Services"). Maison en Cuir is powered by Shopify, which enables us to provide the Services to you. This Privacy Policy describes how we collect, use, and disclose your personal information when you visit, use, or make a purchase or other transaction using the Services or otherwise communicate with us. If there is a conflict between our Terms of Service and this Privacy Policy, this Privacy Policy controls with respect to the collection, processing, and disclosure of your personal information.</p>
+
+        <p>Please read this Privacy Policy carefully. By using and accessing any of the Services, you acknowledge that you have read this Privacy Policy and understand the collection, use, and disclosure of your information as described in this Privacy Policy.</p>
+ <h2>Personal Information We Collect or Process</h2>
+        <p>When we use the term "personal information," we are referring to information that identifies or can reasonably be linked to you or another person. Personal information does not include information that is collected anonymously or that has been de-identified, so that it cannot identify or be reasonably linked to you. We may collect or process the following categories of personal information, including inferences drawn from this personal information, depending on how you interact with the Services, where you live, and as permitted or required by applicable law:</p>
+        <ul>
+            <li>Contact details including your name, address, billing address, shipping address, phone number, and email address.</li>
+            <li>Financial information including credit card, debit card, and financial account numbers, payment card information, financial account information, transaction details, form of payment, payment confirmation and other payment details.</li>
+            <li>Account information including your username, password, security questions, preferences and settings.</li>
+            <li>Transaction information including the items you view, put in your cart, add to your wishlist, or purchase, return, exchange or cancel and your past transactions.</li>
+            <li>Communications with us including the information you include in communications with us, for example, when sending a customer support inquiry.</li>
+            <li>Device information including information about your device, browser, or network connection, your IP address, and other unique identifiers.</li>
+            <li>Usage information including information regarding your interaction with the Services, including how and when you interact with or navigate the Services.</li>
+        </ul>
+
+        <h2>Personal Information Sources</h2>
+        <p>We may collect personal information from the following sources:</p>
+        <ul>
+            <li>Directly from you including when you create an account, visit or use the Services, communicate with us, or otherwise provide us with your personal information;</li>
+            <li>Automatically through the Services including from your device when you use our products or services or visit our websites, and through the use of cookies and similar technologies;</li>
+            <li>From our service providers including when we engage them to enable certain technology and when they collect or process your personal information on our behalf;</li>
+            <li>From our partners or other third parties.</li>
+        </ul>
+
+        <h2>How We Use Your Personal Information</h2>
+        <p>Depending on how you interact with us or which of the Services you use, we may use personal information for the following purposes:</p>
+        <p><strong>Provide, Tailor, and Improve the Services.</strong> We use your personal information to provide you with the Services, including to perform our contract with you, to process your payments, to fulfill your orders, to remember your preferences and items you are interested in, to send notifications to you related to your account, to process purchases, returns, exchanges or other transactions, to create, maintain and otherwise manage your account, to arrange for shipping, to facilitate any returns and exchanges, to enable you to post reviews, and to create a customized shopping experience for you, such as recommending products related to your purchases. This may include using your personal information to better tailor and improve the Services.</p>
+        <p><strong>Marketing and Advertising.</strong> We use your personal information for marketing and promotional purposes, such as to send marketing, advertising and promotional communications by email, text message or postal mail, and to show you online advertisements for products or services on the Services or other websites, including based on items you previously have purchased or added to your cart and other activity on the Services.</p>
+<p><strong>Security and Fraud Prevention.</strong> We use your personal information to authenticate your account, to provide a secure payment and shopping experience, detect, investigate or take action regarding possible fraudulent, illegal, unsafe, or malicious activity, protect public safety, and to secure our services. If you choose to use the Services and register an account, you are responsible for keeping your account credentials safe. We highly recommend that you do not share your username, password or other access details with anyone else.</p>
+        <p><strong>Communicating with You.</strong> We use your personal information to provide you with customer support, to be responsive to you, to provide effective services to you and to maintain our business relationship with you.</p>
+        <p><strong>Legal Reasons.</strong> We use your personal information to comply with applicable law or respond to valid legal process, including requests from law enforcement or government agencies, to investigate or participate in civil discovery, potential or actual litigation, or other adversarial legal proceedings, and to enforce or investigate potential violations of our terms or policies.</p>
+
+        <h2>How We Disclose Personal Information</h2>
+        <p>In certain circumstances, we may disclose your personal information to third parties for legitimate purposes subject to this Privacy Policy. Such circumstances may include:</p>
+        <ul>
+            <li>With Shopify, vendors and other third parties who perform services on our behalf (e.g. IT management, payment processing, data analytics, customer support, cloud storage, fulfillment and shipping).</li>
+            <li>With business and marketing partners to provide marketing services and advertise to you. For example, we use Shopify to support personalized advertising with third-party services based on your online activity with different merchants and websites. Our business and marketing partners will use your information in accordance with their own privacy notices. Depending on where you reside, you may have a right to direct us not to share information about you to show you targeted advertisements and marketing based on your online activity with different merchants and websites.</li>
+            <li>When you direct, request us or otherwise consent to our disclosure of certain information to third parties, such as to ship you products or through your use of social media widgets or login integrations.</li>
+            <li>With our affiliates or otherwise within our corporate group.</li>
+            <li>In connection with a business transaction such as a merger or bankruptcy, to comply with any applicable legal obligations (including to respond to subpoenas, search warrants and similar requests), to enforce any applicable terms of service or policies, and to protect or defend the Services, our rights, and the rights of our users or others.</li>
+        </ul>
+
+        <h2>Relationship with Shopify</h2>
+        <p>The Services are hosted by Shopify, which collects and processes personal information about your access to and use of the Services in order to provide and improve the Services for you. Information you submit to the Services will be transmitted to and shared with Shopify as well as third parties that may be located in countries other than where you reside, in order to provide and improve the Services for you. In addition, to help protect, grow, and improve our business, we use certain Shopify enhanced features that incorporate data and information obtained from your interactions with our Store, along with other merchants and with Shopify. To provide these enhanced features, Shopify may make use of personal information collected about your interactions with our store, along with other merchants, and with Shopify. In these circumstances, Shopify is responsible for the processing of your personal information, including for responding to your requests to exercise your rights over use of your personal information for these purposes.
+            To learn more about how Shopify uses your personal information and any rights you may have, you can visit the Shopify Consumer Privacy Policy.</p>
+
+        <h2>Third Party Websites and Links</h2>
+        <p>The Services may provide links to websites or other online platforms operated by third parties. If you follow links to sites not affiliated or controlled by us, you should review their privacy and security policies and other terms and conditions. We do not guarantee and are not responsible for the privacy or security of such sites, including the accuracy, completeness, or reliability of information found on these sites.</p>
+
+        <h2>Children's Data</h2>
+        <p>The Services are not intended to be used by children, and we do not knowingly collect any personal information about children under the age of majority in your jurisdiction. If you are the parent or guardian of a child who has provided us with their personal information, you may contact us using the contact details set out below to request that it be deleted.</p>
+
+        <h2>Security and Retention of Your Information</h2>
+        <p>Please be aware that no security measures are perfect or impenetrable, and we cannot guarantee "perfect security." In addition, any information you send to us may not be secure while in transit. We recommend that you do not use unsecure channels to communicate sensitive or confidential information to us.</p>
+        <p>How long we retain your personal information depends on different factors, such as whether we need the information to maintain your account, to provide you with Services, comply with legal obligations, resolve disputes or enforce other applicable contracts and policies.</p>
+
+        <h2>Your Rights and Choices</h2>
+        <p>Depending on where you live, you may have some or all of the rights listed below in relation to your personal information. However, these rights are not absolute, may apply only in certain circumstances and, in certain cases, we may decline your request as permitted by law.</p>
+        <ul>
+            <li><strong>Right to Access / Know:</strong> Request access to personal information that we hold about you.</li>
+            <li><strong>Right to Delete:</strong> Request that we delete personal information we maintain about you.</li>
+            <li><strong>Right to Correct:</strong> Request that we correct inaccurate personal information we maintain about you.</li>
+            <li><strong>Right of Portability:</strong> Receive a copy of the personal information we hold about you.</li>
+            <li><strong>Right to Opt out of Sale or Sharing for Targeted Advertising:</strong> Opt out of the "sale" or "share" of your personal information for targeted advertising.</li>
+        </ul>
+
+        <h2>Complaints</h2>
+        <p>If you have complaints about how we process your personal information, please contact us using the contact details provided below. Depending on where you live, you may have the right to appeal our decision or lodge your complaint with your local data protection authority.</p>
+
+        <h2>Changes to This Privacy Policy</h2>
+        <p>We may update this Privacy Policy from time to time, including to reflect changes to our practices or for other operational, legal, or regulatory reasons. We will post the revised Privacy Policy on this website and update the "Last updated" date.</p>
+
+        <h2>Contact</h2>
+        <p>Should you have any questions about our privacy practices or this Privacy Policy, please call or email us at <strong>contact@maisonencuir.com</strong> or contact us at An der Klanze 16, Weyhausen, 38554, DE. For the purpose of applicable data protection laws, we are the data controller of your personal information.</p>
+    </main>
+
+    <section class="newsletter-section">
+<h3>Rejoignez notre liste</h3>
+        <p style="margin-bottom: 25px; opacity: 0.8;">Occasional updates, new pieces, and select releases.</p>
+        <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Merci! You have been added to our list.');">
+            <input type="email" placeholder="Enter your email to join" class="newsletter-input" required>
+            <button type="submit" class="newsletter-btn">Join</button>
+        </form>
+    </section>
+
+    <footer>
+        <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="legal.html">Legal Notice</a>
+            <a href="refund.html">Refund Policy</a>
+            <a href="shipping.html">Shipping Policy</a>
+            <a href="terms.html">Terms of Service</a>
+        </div>
+        <p style="font-size: 10px; opacity: 0.5;">© 2026 Maison en Cuir. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function toggleMenu() { document.getElementById('mobile-menu').classList.toggle('active'); }
+        function toggleSearch() {
+            var s = document.getElementById('search-bar');
+            s.style.display = (s.style.display === 'block') ? 'none' : 'block';
+            if(s.style.display === 'block') s.querySelector('input').focus();
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | Maison en Cuir</title>
+    <link rel="icon" type="image/png" href="1003380806.png">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Figtree:wght@300;400&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --cream: #FAF7F2;
+            --brand-brown: #5A402D; 
+            --serif: 'Cormorant Garamond', serif;
+            --sans: 'Figtree', sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            background-color: var(--cream); 
+            color: var(--brand-brown); 
+            font-family: var(--sans); 
+            -webkit-font-smoothing: antialiased;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* --- NAVIGATION --- */
+        nav {
+            display: flex; justify-content: center; align-items: center;
+            padding: 40px 5%; position: relative; z-index: 1000;
+        }
+        .hamburger {
+            position: absolute; left: 5%; top: 50%; transform: translateY(-50%);
+            display: flex; flex-direction: column; gap: 5px; cursor: pointer; z-index: 1100;
+        }
+        .hamburger span { display: block; width: 22px; height: 1px; background-color: var(--brand-brown); }
+        .logo-nav { font-family: var(--serif); font-size: 28px; text-decoration: none; letter-spacing: 0.05em; color: var(--brand-brown); }
+        
+        .nav-icons { position: absolute; right: 5%; top: 50%; transform: translateY(-50%); display: flex; gap: 20px; align-items: center; }
+        .nav-icons a, .search-trigger { color: var(--brand-brown); text-decoration: none; cursor: pointer; display: flex; align-items: center; }
+
+        #search-bar {
+            position: absolute; top: 100%; left: 0; width: 100%; background: var(--cream);
+            padding: 20px 5%; display: none; border-bottom: 1px solid rgba(90, 64, 45, 0.1); z-index: 999;
+        }
+        #search-bar input { width: 100%; border: none; background: transparent; outline: none; color: var(--brand-brown); font-family: var(--serif); font-size: 24px; font-style: italic; }
+
+        /* --- MOBILE MENU --- */
+        .mobile-menu {
+            position: fixed; top: 0; left: -100%; width: 100%; height: 100%;
+            background: var(--cream); display: flex; flex-direction: column; 
+            justify-content: center; align-items: center; gap: 25px; transition: 0.5s; z-index: 1050;
+        }
+        .mobile-menu.active { left: 0; }
+        .mobile-menu a { font-family: var(--serif); font-size: 32px; text-decoration: none; color: var(--brand-brown); font-style: italic; }
+        .close-menu { position: absolute; top: 40px; left: 5%; font-size: 30px; cursor: pointer; font-family: var(--sans); }
+        .social-menu-links { margin-top: 30px; display: flex; gap: 20px; }
+        .social-menu-links a { font-size: 11px; text-transform: uppercase; letter-spacing: 0.2em; font-family: var(--sans); font-style: normal; border-bottom: 1px solid; }
+
+        /* --- ABOUT CONTENT --- */
+        .about-hero { text-align: center; padding: 60px 5% 40px; }
+        .about-hero h1 { font-family: var(--serif); font-size: 48px; font-style: italic; font-weight: 300; margin-bottom: 20px; }
+        
+        .featured-image-container { max-width: 1000px; margin: 0 auto 80px; padding: 0 5%; }
+        .featured-image-container img { width: 100%; height: auto; display: block; border: 1px solid rgba(90, 64, 45, 0.1); }
+
+        .story-section { max-width: 700px; margin: 0 auto; padding: 0 5% 100px; text-align: center; }
+        .ongoing-label { font-size: 10px; text-transform: uppercase; letter-spacing: 0.3em; margin-bottom: 20px; opacity: 0.6; display: block; }
+.story-section h2 { font-family: var(--serif); font-size: 36px; font-style: italic; font-weight: 300; margin-bottom: 25px; }
+        .story-section p { font-size: 17px; line-height: 1.8; margin-bottom: 30px; opacity: 0.9; }
+        
+        .discover-link { 
+            font-family: var(--serif); font-size: 20px; font-style: italic; 
+            color: var(--brand-brown); text-decoration: none; border-bottom: 1px solid var(--brand-brown);
+            padding-bottom: 5px; transition: opacity 0.3s;
+        }
+        .discover-link:hover { opacity: 0.6; }
+
+        .extra-info { margin-top: 60px; font-size: 14px; opacity: 0.7; font-style: italic; }
+        .extra-info a { color: var(--brand-brown); text-decoration: none; border-bottom: 1px solid; }
+
+        /* --- NEWSLETTER --- */
+        .newsletter-section { background-color: #F4F1EC; padding: 80px 10%; text-align: center; }
+        .newsletter-section h3 { font-family: var(--serif); font-size: 32px; font-style: italic; margin-bottom: 15px; }
+        .newsletter-form { display: flex; flex-direction: column; align-items: center; gap: 20px; }
+        .newsletter-input { border: none; border-bottom: 1px solid var(--brand-brown); background: transparent; padding: 10px; width: 100%; max-width: 300px; outline: none; font-family: var(--sans); text-align: center; color: var(--brand-brown); }
+        .newsletter-btn { background: none; border: none; color: var(--brand-brown); text-transform: uppercase; font-size: 11px; letter-spacing: 0.1em; cursor: pointer; border-bottom: 1px solid; padding-bottom: 4px; }
+
+        /* --- FOOTER --- */
+        footer { padding: 60px 10%; text-align: center; border-top: 1px solid rgba(90, 64, 45, 0.1); }
+        .footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; margin-bottom: 20px; }
+        .footer-links a { color: var(--brand-brown); text-decoration: none; font-size: 10px; text-transform: uppercase; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+        <a href="index.html" class="logo-nav">Maison en Cuir</a>
+        <div class="nav-icons">
+            <div class="search-trigger" onclick="toggleSearch()">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+            </div>
+            <a href="cart.html">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+            </a>
+        </div>
+        <div id="search-bar"><input type="text" placeholder="Search the journal..."></div>
+    </nav>
+
+    <div class="mobile-menu" id="mobile-menu">
+        <div class="close-menu" onclick="toggleMenu()">×</div>
+        <a href="index.html" onclick="toggleMenu()">Home</a>
+        <a href="collection.html" onclick="toggleMenu()">La Collection</a>
+        <a href="about.html" onclick="toggleMenu()">About us</a>
+        <a href="contact.html" onclick="toggleMenu()">Contact</a>
+        <div class="social-menu-links">
+            <a href="https://tiktok.com/@maisonencuir" target="_blank">TikTok</a>
+            <a href="https://instagram.com/maisonencuir" target="_blank">Instagram</a>
+        </div>
+    </div>
+
+    <main>
+        <section class="about-hero">
+            <h1>The stories behind the leather.</h1>
+        </section>
+
+        <div class="featured-image-container">
+            <img src="15.jpg" alt="Five Women portrait series">
+        </div>
+
+        <section class="story-section">
+            <span class="ongoing-label">ongoing series</span>
+            <h2>Five Women, Five Vanities</h2>
+            <p>Five women. Five lives. Five vanities. A portrait series about what we keep close — and what it says about who we are.</p>
+            
+            <a href="story.html" class="discover-link">Discover the series →</a>
+<div class="extra-info">
+                <p>More stories are coming. In the meantime, follow us on <a href="https://instagram.com/maisonencuir" target="_blank">Instagram</a> for behind-the-scenes glimpses.</p>
+            </div>
+        </section>
+    </main>
+
+    <section class="newsletter-section">
+        <h3>Join our list</h3>
+        <p style="margin-bottom: 25px; opacity: 0.8;">Occasional updates, new parts, and select releases.</p>
+        <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Merci! You have been added to our list.');">
+            <input type="email" placeholder="Enter your email to join" class="newsletter-input" required>
+            <button type="submit" class="newsletter-btn">Join</button>
+        </form>
+    </section>
+
+    <footer>
+        <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="legal.html">Legal Notice</a>
+            <a href="refund.html">Refund Policy</a>
+            <a href="shipping.html">Shipping Policy</a>
+            <a href="terms.html">Terms of Service</a>
+        </div>
+        <p style="font-size: 10px; opacity: 0.5;">© 2026 Maison en Cuir. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function toggleMenu() { document.getElementById('mobile-menu').classList.toggle('active'); }
+        function toggleSearch() {
+            var s = document.getElementById('search-bar');
+            s.style.display = (s.style.display === 'block') ? 'none' : 'block';
+            if(s.style.display === 'block') s.querySelector('input').focus();
+        }
+    </script>
+</body>
+</html>

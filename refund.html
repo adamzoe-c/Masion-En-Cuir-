@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Refund Policy | Maison en Cuir</title>
+    <link rel="icon" type="image/png" href="1003380806.png">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Figtree:wght@300;400&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --cream: #FAF7F2;
+            --brand-brown: #5A402D; 
+            --serif: 'Cormorant Garamond', serif;
+            --sans: 'Figtree', sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            background-color: var(--cream); 
+            color: var(--brand-brown); 
+            font-family: var(--sans); 
+            -webkit-font-smoothing: antialiased;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* --- NAVIGATION --- */
+        nav {
+            display: flex; justify-content: center; align-items: center;
+            padding: 40px 5%; position: relative; z-index: 1000;
+        }
+        .hamburger {
+            position: absolute; left: 5%; top: 50%; transform: translateY(-50%);
+            display: flex; flex-direction: column; gap: 5px; cursor: pointer; z-index: 1100;
+        }
+        .hamburger span { display: block; width: 22px; height: 1px; background-color: var(--brand-brown); }
+        .logo-nav { font-family: var(--serif); font-size: 28px; text-decoration: none; letter-spacing: 0.05em; color: var(--brand-brown); }
+        
+        .nav-icons { position: absolute; right: 5%; top: 50%; transform: translateY(-50%); display: flex; gap: 20px; align-items: center; }
+        .nav-icons a, .search-trigger { color: var(--brand-brown); text-decoration: none; cursor: pointer; display: flex; align-items: center; }
+
+        #search-bar {
+            position: absolute; top: 100%; left: 0; width: 100%; background: var(--cream);
+            padding: 20px 5%; display: none; border-bottom: 1px solid rgba(90, 64, 45, 0.1); z-index: 999;
+        }
+        #search-bar input { width: 100%; border: none; background: transparent; outline: none; color: var(--brand-brown); font-family: var(--serif); font-size: 24px; font-style: italic; }
+
+        /* --- MOBILE MENU --- */
+        .mobile-menu {
+            position: fixed; top: 0; left: -100%; width: 100%; height: 100%;
+            background: var(--cream); display: flex; flex-direction: column; 
+            justify-content: center; align-items: center; gap: 25px; transition: 0.5s; z-index: 1050;
+        }
+        .mobile-menu.active { left: 0; }
+        .mobile-menu a { font-family: var(--serif); font-size: 32px; text-decoration: none; color: var(--brand-brown); font-style: italic; }
+        .close-menu { position: absolute; top: 40px; left: 5%; font-size: 30px; cursor: pointer; font-family: var(--sans); }
+        .social-menu-links { margin-top: 30px; display: flex; gap: 20px; }
+        .social-menu-links a { font-size: 11px; text-transform: uppercase; letter-spacing: 0.2em; font-family: var(--sans); font-style: normal; border-bottom: 1px solid; }
+
+        /* --- REFUND CONTENT --- */
+        .policy-container { max-width: 800px; margin: 0 auto; padding: 40px 5% 100px; }
+        
+        .center-logo { width: 180px; height: auto; margin: 0 auto 40px; display: block; }
+        
+        h1 { font-family: var(--serif); font-size: 42px; font-style: italic; font-weight: 300; margin-bottom: 60px; text-align: center; }
+        
+        h2 { font-family: var(--serif); font-size: 26px; font-style: italic; margin: 40px 0 20px; font-weight: 400; border-bottom: 1px solid rgba(90, 64, 45, 0.1); padding-bottom: 10px; }
+        h3 { font-family: var(--serif); font-size: 20px; margin: 30px 0 15px; font-weight: 400; font-style: italic; }
+        
+        p, li { font-size: 15px; margin-bottom: 18px; opacity: 0.9; }
+        ul { margin-left: 20px; margin-bottom: 25px; }
+.form-box { border: 1px solid var(--brand-brown); padding: 30px; margin: 40px 0; font-family: var(--serif); }
+        .note-box { background: #F4F1EC; padding: 20px; border-left: 3px solid var(--brand-brown); margin: 30px 0; }
+
+        /* --- NEWSLETTER --- */
+        .newsletter-section { background-color: #F4F1EC; padding: 80px 10%; text-align: center; }
+        .newsletter-section h3 { font-family: var(--serif); font-size: 32px; font-style: italic; margin-bottom: 15px; }
+        .newsletter-form { display: flex; flex-direction: column; align-items: center; gap: 20px; }
+        .newsletter-input { border: none; border-bottom: 1px solid var(--brand-brown); background: transparent; padding: 10px; width: 100%; max-width: 300px; outline: none; font-family: var(--sans); text-align: center; color: var(--brand-brown); }
+        .newsletter-btn { background: none; border: none; color: var(--brand-brown); text-transform: uppercase; font-size: 11px; letter-spacing: 0.1em; cursor: pointer; border-bottom: 1px solid; padding-bottom: 4px; }
+
+        /* --- FOOTER --- */
+        footer { padding: 60px 10%; text-align: center; border-top: 1px solid rgba(90, 64, 45, 0.1); }
+        .footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; margin-bottom: 20px; }
+        .footer-links a { color: var(--brand-brown); text-decoration: none; font-size: 10px; text-transform: uppercase; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+        <a href="index.html" class="logo-nav">Maison en Cuir</a>
+        <div class="nav-icons">
+            <div class="search-trigger" onclick="toggleSearch()">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+            </div>
+            <a href="cart.html">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+            </a>
+        </div>
+        <div id="search-bar"><input type="text" placeholder="Search collection..."></div>
+    </nav>
+
+    <div class="mobile-menu" id="mobile-menu">
+        <div class="close-menu" onclick="toggleMenu()">×</div>
+        <a href="index.html" onclick="toggleMenu()">Home</a>
+        <a href="collection.html" onclick="toggleMenu()">La Collection</a>
+        <a href="journal.html" onclick="toggleMenu()">Notre Journal</a>
+        <a href="contact.html" onclick="toggleMenu()">Contact</a>
+        <div class="social-menu-links">
+            <a href="https://tiktok.com/@maisonencuir" target="_blank">TikTok</a>
+            <a href="https://instagram.com/maisonencuir" target="_blank">Instagram</a>
+        </div>
+    </div>
+
+    <main class="policy-container">
+        <img src="logo.png" alt="Maison en Cuir" class="center-logo">
+        <h1>Refund Policy</h1>
+
+        <h2>Cancellation Policy</h2>
+        <p>Consumers have a fourteen-day right of withdrawal.</p>
+
+        <h3>Right of Withdrawal</h3>
+        <p>You have the right to withdraw from this contract within fourteen days without giving any reason. The withdrawal period is fourteen days from the day on which you or a third party named by you, who is not the carrier, have taken possession of the goods.</p>
+        
+        <p>To exercise your right of withdrawal, you must inform us (<strong>Maison en Cuir, An der Klanze 16, 38554 Weyhausen, Germany, contact@maisonencuir.com, Phone: +49 174 1566080</strong>) of your decision to withdraw from this contract by means of a clear statement (e.g., a letter sent by post or an email). You may use the attached sample withdrawal form, but this is not mandatory.</p>
+        
+        <p>To meet the withdrawal deadline, it is sufficient for you to send the notification of exercising the right of withdrawal before the withdrawal period has expired.</p>
+        <h2>Exclusion of the Right of Withdrawal for Personalized Products</h2>
+        <p>The right of withdrawal does not apply to contracts for the supply of goods that are made to the consumer’s specifications or clearly personalized.</p>
+        <p>This applies in particular to products that are personalized with initials, names, or other individual customizations selected by the customer at the time of purchase. Personalized products are therefore excluded from returns and refunds, unless the product is defective or faulty.</p>
+
+        <h2>Handmade Characteristics</h2>
+        <p>All of our products are individually handmade. As a result, slight variations in stitching, edge finishing, leather texture, grain, color tone, stamping placement, and overall finish may occur. These minor irregularities are inherent to handcrafted production and are not considered defects.</p>
+        <p>Small variations in monogram alignment, pressure of stamping, or natural leather markings (including wrinkles, pores, or subtle tonal differences) are part of the character of genuine leather and handmade craftsmanship.</p>
+        <p>Returns or refunds will not be accepted for minor cosmetic variations that do not affect the functionality, durability, or structural integrity of the item.</p>
+
+        <h2>Consequences of Withdrawal</h2>
+        <p>If you withdraw from this contract, we shall reimburse you for all payments we have received from you, including delivery costs (except for additional costs resulting from your choice of a different type of delivery than the least expensive standard delivery offered by us), without undue delay and at the latest within fourteen days from the day on which we received the notification of your withdrawal from this contract.</p>
+        <p>For this repayment, we will use the same payment method that you used in the original transaction, unless expressly agreed otherwise with you; in no case will you be charged fees for this repayment. We may withhold reimbursement until we have received the goods back or until you have supplied evidence that you have returned the goods, whichever is earlier.</p>
+        <p>You must return or hand over the goods to us without undue delay and in any event no later than fourteen days from the day on which you inform us of your withdrawal from this contract. The deadline is met if you send the goods before the period of fourteen days has expired. You shall bear the direct costs of returning the goods.</p>
+        <p>You are only liable for any diminished value of the goods if this loss of value is due to handling of the goods that was not necessary for checking the quality, characteristics, and functioning of the goods.</p>
+
+        <h2>International Returns (Outside the EU)</h2>
+        <p>For orders delivered outside the European Union, return requests must be submitted within 14 days of delivery. Returns are subject to the following conditions:</p>
+        <ul>
+            <li>All return shipping costs are the responsibility of the customer.</li>
+            <li>The customer is solely responsible for any customs duties, import taxes, brokerage fees, or clearance charges.</li>
+            <li>Returned items must be clearly declared as “Returned Goods” and marked as having no commercial value.</li>
+            <li>The return must be sent using a trackable shipping service.</li>
+        </ul>
+        <p>Refunds apply solely to the purchase price of the returned product. Original shipping costs and customs duties paid at the time of purchase are non-refundable.</p>
+
+        <div class="form-box">
+            <h3>Sample Withdrawal Form</h3>
+            <p>(If you wish to withdraw from the contract, please complete this form and return it to us.)</p>
+            <p>– To Maison en Cuir, An der Klanze 16, 38554 Weyhausen, Germany, contact@maisonencuir.com</p>
+            <p>– I/we (*) hereby withdraw from the contract concluded by me/us (*) for the purchase of the following goods (*)/the provision of the following service (*)</p>
+            <p>– Ordered on (*)/received on (*)</p>
+            <p>– Name of consumer(s)</p>
+            <p>– Address of consumer(s)</p>
+            <p>– Signature of consumer(s) (only if notified on paper)</p>
+            <p>– Date</p>
+            <p style="font-size: 12px; opacity: 0.7;">(*) Delete as appropriate.</p>
+        </div>
+
+        <div class="note-box">
+            <p><strong>Note:</strong> If a package is returned to us due to customer fault (e.g., non-collection, refusal of delivery, or incorrect address), it is not eligible for a refund. We can reship the order upon request; however, the customer must cover the new shipping costs plus a 10% handling fee.</p>
+        </div>
+    </main>
+
+    <section class="newsletter-section">
+        <h3>Rejoignez notre liste</h3>
+        <p style="margin-bottom: 25px; opacity: 0.8;">Occasional updates, new pieces, and select releases.</p>
+        <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Merci! You have been added to our list.');">
+            <input type="email" placeholder="Enter your email to join" class="newsletter-input" required>
+            <button type="submit" class="newsletter-btn">Join</button>
+        </form>
+    </section>
+
+    <footer>
+        <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="legal.html">Legal Notice</a>
+            <a href="refund.html">Refund Policy</a>
+            <a href="shipping.html">Shipping Policy</a>
+            <a href="terms.html">Terms of Service</a>
+        </div>
+        <p style="font-size: 10px; opacity: 0.5;">© 2026 Maison en Cuir. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function toggleMenu() { document.getElementById('mobile-menu').classList.toggle('active'); }
+        function toggleSearch() {
+            var s = document.getElementById('search-bar');
+            s.style.display = (s.style.display === 'block') ? 'none' : 'block';
+            if(s.style.display === 'block') s.querySelector('input').focus();
+        }
+    </script>
+</body>
+</html>
