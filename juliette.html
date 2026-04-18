@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juliette | Cinq Femmes, Cinq Vanités | Maison en Cuir</title>
+    <link rel="icon" type="image/png" href="1003380806.png">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Figtree:wght@300;400&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --cream: #FAF7F2;
+            --brand-brown: #5A402D; 
+            --serif: 'Cormorant Garamond', serif;
+            --sans: 'Figtree', sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            background-color: var(--cream); 
+            color: var(--brand-brown); 
+            font-family: var(--sans); 
+            -webkit-font-smoothing: antialiased;
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        /* --- NAVIGATION --- */
+        nav {
+            display: flex; justify-content: center; align-items: center;
+            padding: 40px 5%; position: relative; z-index: 1000;
+        }
+        .hamburger {
+            position: absolute; left: 5%; top: 50%; transform: translateY(-50%);
+            display: flex; flex-direction: column; gap: 5px; cursor: pointer; z-index: 1100;
+        }
+        .hamburger span { display: block; width: 22px; height: 1px; background-color: var(--brand-brown); }
+        .logo-nav { font-family: var(--serif); font-size: 28px; text-decoration: none; letter-spacing: 0.05em; color: var(--brand-brown); }
+        
+        .nav-icons { position: absolute; right: 5%; top: 50%; transform: translateY(-50%); display: flex; gap: 20px; align-items: center; }
+        .nav-icons a, .search-trigger { color: var(--brand-brown); text-decoration: none; cursor: pointer; display: flex; align-items: center; }
+
+        #search-bar {
+            position: absolute; top: 100%; left: 0; width: 100%; background: var(--cream);
+            padding: 20px 5%; display: none; border-bottom: 1px solid rgba(90, 64, 45, 0.1); z-index: 999;
+        }
+        #search-bar input { width: 100%; border: none; background: transparent; outline: none; color: var(--brand-brown); font-family: var(--serif); font-size: 24px; font-style: italic; }
+
+        /* --- MOBILE MENU --- */
+        .mobile-menu {
+            position: fixed; top: 0; left: -100%; width: 100%; height: 100%;
+            background: var(--cream); display: flex; flex-direction: column; 
+            justify-content: center; align-items: center; gap: 25px; transition: 0.5s; z-index: 1050;
+        }
+        .mobile-menu.active { left: 0; }
+        .mobile-menu a { font-family: var(--serif); font-size: 32px; text-decoration: none; color: var(--brand-brown); font-style: italic; }
+        .close-menu { position: absolute; top: 40px; left: 5%; font-size: 30px; cursor: pointer; font-family: var(--sans); }
+        .social-menu-links { margin-top: 30px; display: flex; gap: 20px; }
+        .social-menu-links a { font-size: 11px; text-transform: uppercase; letter-spacing: 0.2em; font-family: var(--sans); font-style: normal; border-bottom: 1px solid; }
+
+        /* --- EDITORIAL LAYOUT --- */
+        article { max-width: 900px; margin: 0 auto; padding: 40px 5% 100px; }
+        
+        .breadcrumb { font-size: 10px; text-transform: uppercase; letter-spacing: 0.2em; opacity: 0.6; margin-bottom: 40px; display: block; text-align: center; }
+        
+        .hero-img { width: 100%; height: auto; margin-bottom: 60px; }
+        
+        header.portrait-header { text-align: center; margin-bottom: 80px; }
+        header.portrait-header h1 { font-family: var(--serif); font-size: 48px; font-weight: 300; margin-bottom: 10px; }
+        .bio-subtitle { font-size: 14px; text-transform: uppercase; letter-spacing: 0.1em; opacity: 0.7; margin-bottom: 30px; display: block; }
+        .main-quote { font-family: var(--serif); font-size: 28px; font-style: italic; line-height: 1.4; max-width: 700px; margin: 0 auto; font-weight: 300; }
+ .intro-bio { font-size: 17px; line-height: 1.8; margin-bottom: 100px; max-width: 750px; margin-left: auto; margin-right: auto; }
+
+        .question-block { margin-bottom: 80px; }
+        .q-number { font-size: 11px; text-transform: uppercase; letter-spacing: 0.3em; opacity: 0.5; display: block; margin-bottom: 15px; }
+        .question-title { font-family: var(--serif); font-size: 24px; font-style: italic; margin-bottom: 25px; display: block; border-bottom: 1px solid rgba(90,64,45,0.1); padding-bottom: 10px; }
+        .question-text { font-weight: 600; font-size: 16px; margin-bottom: 20px; display: block; }
+        .answer-text { font-size: 16px; opacity: 0.9; }
+
+        .full-img { width: 100%; margin: 60px 0; }
+
+        /* --- VANITY FOCUS --- */
+        .vanity-focus { background: #F4F1EC; padding: 60px; margin-top: 100px; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+        .vanity-info h4 { font-family: var(--serif); font-size: 32px; font-style: italic; margin-bottom: 20px; }
+        .vanity-details { font-size: 14px; margin-bottom: 20px; }
+        .vanity-content-list { font-size: 15px; font-style: italic; opacity: 0.8; margin-bottom: 30px; }
+        .vanity-conclusion { font-family: var(--serif); font-size: 20px; border-top: 1px solid rgba(90,64,45,0.1); padding-top: 20px; }
+
+        /* --- NAVIGATION BETWEEN PORTRAITS --- */
+        .portrait-nav { display: flex; justify-content: space-between; padding: 60px 0; border-top: 1px solid rgba(90,64,45,0.1); margin-top: 60px; }
+        .portrait-nav a { text-decoration: none; color: var(--brand-brown); font-family: var(--serif); font-size: 18px; font-style: italic; }
+
+        /* --- NEWSLETTER --- */
+        .newsletter-section { background-color: #F4F1EC; padding: 80px 10%; text-align: center; }
+        .newsletter-section h3 { font-family: var(--serif); font-size: 32px; font-style: italic; margin-bottom: 15px; }
+        .newsletter-form { display: flex; flex-direction: column; align-items: center; gap: 20px; }
+        .newsletter-input { border: none; border-bottom: 1px solid var(--brand-brown); background: transparent; padding: 10px; width: 100%; max-width: 300px; outline: none; font-family: var(--sans); text-align: center; color: var(--brand-brown); }
+        .newsletter-btn { background: none; border: none; color: var(--brand-brown); text-transform: uppercase; font-size: 11px; letter-spacing: 0.1em; cursor: pointer; border-bottom: 1px solid; padding-bottom: 4px; }
+
+        /* --- FOOTER --- */
+        footer { padding: 60px 10%; text-align: center; }
+        .footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; margin-bottom: 20px; }
+        .footer-links a { color: var(--brand-brown); text-decoration: none; font-size: 10px; text-transform: uppercase; }
+
+        @media (max-width: 768px) {
+            .vanity-focus { grid-template-columns: 1fr; padding: 30px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+        <a href="index.html" class="logo-nav">Maison en Cuir</a>
+        <div class="nav-icons">
+            <div class="search-trigger" onclick="toggleSearch()">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+            </div>
+            <a href="cart.html">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+            </a>
+        </div>
+        <div id="search-bar"><input type="text" placeholder="Search products..."></div>
+    </nav>
+<div class="mobile-menu" id="mobile-menu">
+        <div class="close-menu" onclick="toggleMenu()">×</div>
+        <a href="index.html" onclick="toggleMenu()">Home</a>
+        <a href="collection.html" onclick="toggleMenu()">La Collection</a>
+        <a href="story.html" onclick="toggleMenu()">Notre Journal</a>
+        <a href="contact.html" onclick="toggleMenu()">Contact</a>
+        <div class="social-menu-links">
+            <a href="https://tiktok.com/@maisonencuir" target="_blank">TikTok</a>
+            <a href="https://instagram.com/maisonencuir" target="_blank">Instagram</a>
+        </div>
+    </div>
+
+    <article>
+        <span class="breadcrumb">Cinq Femmes, Cinq Vanités — Portrait Nº01</span>
+        
+        <img src="juliette.jpg" alt="Juliette portrait" class="hero-img">
+
+        <header class="portrait-header">
+            <h1>Juliette</h1>
+            <span class="bio-subtitle">26 — Co-founder, Germany</span>
+            <p class="main-quote">"I overcame the fear of rejection. I overcame shyness. And in today's world, that's a bigger win than any sale."</p>
+        </header>
+
+        <section class="intro-bio">
+            <p>Juliette co-built Maison en Cuir from scratch, a made-to-order leather goods brand where every vanity case is personalized, every detail is deliberate, and almost every decision runs through her. She oversees the branding, the campaigns, the creator relationships, the logistics. She is also, still, a university student.</p>
+            <p style="margin-top: 20px;">We asked her five questions. She answered the way she builds, directly, honestly, and with more personality than she gives herself credit for.</p>
+        </section>
+
+        <div class="question-block">
+            <span class="q-number">Nº01 — Le matin</span>
+            <h3 class="question-title">Rituel Matinal</h3>
+            <span class="question-text">Walk us through your morning. Is it structured, or does it change every day? What's the ritual — if there is one — that sets the tone for everything that follows?</span>
+            <p class="answer-text">My morning is never the same twice. I study online, so there's no commute, no set time I have to be somewhere, which sounds like freedom but honestly just means the line between "morning" and "work" doesn't really exist. Some days I start slow, some days I'm already answering emails before I've gotten out of bed. I've tried setting a routine before, the whole wake up early, journal, meditate thing... and it lasted about three days. My life just doesn't work that way right now, and I've stopped fighting it. The only constant is coffee. If I have time I'll make it properly. If not, it's whatever gets caffeine into me the fastest. That's it. That's the whole ritual.</p>
+        </div>
+
+        <img src="coffee.jpg" alt="Rituel café" class="full-img">
+
+        <div class="question-block">
+            <span class="q-number">Nº02 — L'objet</span>
+            <h3 class="question-title">L'objet fétiche</h3>
+            <span class="question-text">Is there something you keep close that has nothing to do with work — something that reminds you who you are outside of what you've built? What is it, and what does it mean to you?</span>
+            <p class="answer-text">This is going to sound so unromantic, but it's a Lululemon water bottle I bought in 2021. It goes everywhere with me. There's no deep story, nobody gave it to me, it's not an heirloom. It just reminds me to stop and drink water, which sounds ridiculous, but when you're running a business and going to university and answering emails at midnight, you genuinely forget the basics. You forget to eat, you forget to move, you forget to just... stop for a second. So yeah. A water bottle. That's my thing. I wish I had something fancier to say, but I don't.</p>
+        </div>
+<div class="question-block">
+            <span class="q-number">Nº03 — L'identité</span>
+            <h3 class="question-title">Le coût de la création</h3>
+            <span class="question-text">What did building something of your own cost you that no one warned you about? And what did it give you that you never expected?</span>
+            <p class="answer-text">Time and energy. That's what it cost me. Nobody warns you about that part, not really. People see the brand, the Instagram, the product. They don't see how tired you are, or the self-doubt that hits at 2am when you're still working, or how guilty you feel for missing things with the people you love. You sacrifice sleep. You sacrifice relaxation. You sacrifice the version of yourself that used to just be... a person. And the hardest part is that you chose it, so you feel like you're not allowed to complain. But it's hard. It's really hard. What it gave me though (I didn't see this coming) is that I'm not scared anymore. I used to be shy. I used to be terrified of rejection. And at some point, without realising it, I just... wasn't. I don't know exactly when it happened, but it did. Maybe it was the hundredth cold email, or the first time someone said no and I kept going anyway. I'm not sure. But I wouldn't trade that for anything.</p>
+        </div>
+
+        <div class="question-block">
+            <span class="q-number">Nº04 — La vie</span>
+            <h3 class="question-title">Le quotidien réel</h3>
+            <span class="question-text">What does your life look like right now — the real version, not the LinkedIn version? What are you proud of? What keeps you up at night?</span>
+            <p class="answer-text">Chaotic, honestly. University takes half my day, and then the real work starts. Emails, content, mood boards, reaching out to creators, logistics, whatever problem decided to appear that morning. There's no schedule. Or there is one, but it changes every single day, so I've stopped calling it a schedule. I eat lunch late or not at all. I close my laptop at night and then open it again twenty minutes later because I remembered something I forgot to do. Some days I feel like I'm thriving. Other days I'm just surviving and pretending I'm not. The worst part is the imposter syndrome, that voice that goes who do you think you are? Or when you post something you were proud of and then immediately want to delete it. That still happens. I don't think it goes away. But I'm still here and I'm still doing it, so.</p>
+        </div>
+
+        <div class="question-block">
+            <span class="q-number">Nº05 — La vanité</span>
+            <h3 class="question-title">L'intérieur</h3>
+            <span class="question-text">Open your vanity. Tell us everything that's inside. What does it say about how you take care of yourself — or how you forget to?</span>
+            <p class="answer-text">I don't replace anything until it's completely empty. That's rule number one. My routine looks simple from the outside but there's a lot in there, foundation, three concealers because finding the right shade when you're olive-skinned is a whole journey, bronzer, translucent powder, a shadow palette, three lipsticks, lip liners, a full set of brushes. All from brands I've tested a hundred times. Nothing trendy, nothing impulsive. It took me years to get here. And honestly, a couple of breakups. There's something about going through that and coming out the other side where you just stop second-guessing your choices, even the small ones, like which lip liner to keep and which one to let go. I think my vanity says that I finally know what I like. It's a lot, but every single thing in there earned its place.</p>
+        </div>
+
+        <div class="vanity-focus">
+            <img src="19.jpg" alt="La vanité de Juliette" style="width: 100%;">
+<div class="vanity-info">
+                <h4>Sa vanité.</h4>
+                <p class="vanity-details">Coloris Mocha. Initiales J.H.</p>
+                <p class="vanity-content-list">Inside: More than she'll admit. Foundation, concealers, bronzer, powder, lipsticks, lip liners, brushes, and whatever else she's accumulated over years of knowing exactly what she likes.</p>
+                <p class="vanity-conclusion">Chaque vanité raconte quelque chose. La sienne raconte une femme qui sait exactement ce dont elle a besoin.</p>
+            </div>
+        </div>
+
+        <nav class="portrait-nav">
+            <a href="story.html">← Retour à la série</a>
+            <a href="olivia.html">Portrait suivant: Nº02 — Olivia →</a>
+        </nav>
+    </article>
+
+    <section class="newsletter-section">
+        <h3>Rejoignez notre liste</h3>
+        <p style="margin-bottom: 25px; opacity: 0.8;">Occasional updates, new pieces, and select releases.</p>
+        <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Merci! You have been added to our list.');">
+            <input type="email" placeholder="Enter your email to join" class="newsletter-input" required>
+            <button type="submit" class="newsletter-btn">Join</button>
+        </form>
+    </section>
+
+    <footer>
+        <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="legal.html">Legal Notice</a>
+            <a href="refund.html">Refund Policy</a>
+            <a href="shipping.html">Shipping Policy</a>
+            <a href="terms.html">Terms of Service</a>
+        </div>
+        <p style="font-size: 10px; opacity: 0.5;">© 2026 Maison en Cuir. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function toggleMenu() { document.getElementById('mobile-menu').classList.toggle('active'); }
+        function toggleSearch() {
+            var s = document.getElementById('search-bar');
+            s.style.display = (s.style.display === 'block') ? 'none' : 'block';
+            if(s.style.display === 'block') s.querySelector('input').focus();
+        }
+    </script>
+</body>
+</html>

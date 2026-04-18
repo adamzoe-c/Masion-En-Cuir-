@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mocha Vanity | Maison en Cuir</title>
+    <title>Rouge Vanity | Maison en Cuir</title>
     <link rel="icon" type="image/png" href="1003380806.png">
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Figtree:wght@300;400&display=swap" rel="stylesheet">
     
@@ -25,6 +25,10 @@
         .hamburger { position: absolute; left: 5%; display: flex; flex-direction: column; gap: 5px; cursor: pointer; }
         .hamburger span { display: block; width: 22px; height: 1px; background-color: var(--brand-brown); }
         .nav-icons { position: absolute; right: 5%; display: flex; gap: 20px; align-items: center; }
+        .search-trigger { cursor: pointer; }
+
+        #search-bar { position: absolute; top: 100%; left: 0; width: 100%; background: var(--cream); padding: 20px 5%; display: none; border-bottom: 1px solid rgba(0,0,0,0.05); }
+        #search-bar input { width: 100%; border: none; background: transparent; outline: none; font-family: var(--serif); font-size: 20px; color: var(--brand-brown); }
 
         .mobile-menu { position: fixed; top: 0; left: -100%; width: 100%; height: 100%; background: var(--cream); display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 25px; transition: 0.5s; z-index: 1050; }
         .mobile-menu.active { left: 0; }
@@ -34,39 +38,38 @@
 
         /* --- PRODUCT LAYOUT --- */
         .product-container { display: grid; grid-template-columns: 1.2fr 1fr; gap: 60px; padding: 20px 5% 80px; max-width: 1400px; margin: 0 auto; }
-
         .main-img-display { width: 100%; aspect-ratio: 1/1; object-fit: cover; background: #F4F1EC; cursor: zoom-in; margin-bottom: 15px; }
         .thumb-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
-        .thumb-grid img { width: 100%; aspect-ratio: 1/1; object-fit: cover; cursor: pointer; opacity: 0.5; transition: 0.3s; }
+        .thumb-grid img { width: 100%; aspect-ratio: 1/1; object-fit: cover; cursor: pointer; opacity: 0.5; }
         .thumb-grid img.active { opacity: 1; border: 1px solid var(--brand-brown); }
 
         .product-details h1 { font-family: var(--serif); font-size: 38px; font-weight: 300; margin-bottom: 8px; }
         .price-line { font-size: 18px; margin-bottom: 5px; }
-        .status-tag { font-size: 12px; color: var(--waiting-grey); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 20px; display: block; }
+        .status-tag { font-size: 12px; color: var(--waiting-grey); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 25px; display: block; }
 
-        .swatch-container { margin: 25px 0; }
-        .swatch-grid { display: flex; gap: 12px; margin-top: 10px; }
+        .swatch-grid { display: flex; gap: 12px; margin: 15px 0 30px; }
         .swatch { width: 42px; height: 42px; border-radius: 50%; cursor: pointer; border: 1px solid transparent; padding: 2px; }
         .swatch.active { border-color: var(--brand-brown); }
         .swatch span { display: block; width: 100%; height: 100%; border-radius: 50%; }
-        
         .c-mocha { background: #5A402D; } .c-rouge { background: #8B1A1A; } .c-onyx { background: #1A1A1A; }
         .c-blue { background: #3B4B5C; } .c-nude { background: #D2B48C; }
-
-        .waitlist-section { border-top: 1px solid rgba(0,0,0,0.05); padding-top: 30px; margin-top: 30px; }
+.waitlist-section { border-top: 1px solid rgba(0,0,0,0.05); padding-top: 30px; margin-top: 30px; }
         .waitlist-section input { width: 100%; padding: 14px; margin-bottom: 12px; border: 1px solid rgba(0,0,0,0.1); background: transparent; outline: none; }
         .btn-waitlist { width: 100%; padding: 16px; background: var(--waiting-grey); color: white; border: none; font-family: var(--serif); font-size: 18px; cursor: pointer; }
 
-        /* --- RESPONSIVE DETAIL IMAGES --- */
-        .detail-gallery { 
-            display: grid; 
-            grid-template-columns: repeat(3, 1fr); /* 3 images on one line for desktop */
-            gap: 20px; 
-            max-width: 1000px; 
-            margin: 80px auto 40px; 
-            padding: 0 5%; 
-        }
+        /* --- REVIEWS --- */
+        .reviews-container { max-width: 800px; margin: 60px auto; padding: 0 5%; border-top: 1px solid rgba(0,0,0,0.05); padding-top: 60px; }
+        .review-card { padding: 30px 0; border-bottom: 1px solid rgba(0,0,0,0.05); }
+        .stars { color: #D4AF37; font-size: 14px; margin-bottom: 10px; }
+
+        /* --- IMAGES DETAIL --- */
+        .detail-gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; max-width: 1000px; margin: 80px auto; padding: 0 5%; }
         .detail-gallery img { width: 100%; aspect-ratio: 4/5; object-fit: cover; cursor: zoom-in; }
+
+        /* --- FOOTER --- */
+        footer { padding: 80px 5%; text-align: center; background: #F4F1EC; border-top: 1px solid rgba(0,0,0,0.05); }
+        .footer-links { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 40px; }
+        .footer-links a { text-decoration: none; color: inherit; font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; }
 
         /* --- MODAL --- */
         .modal { display: none; position: fixed; z-index: 3000; top: 0; left: 0; width: 100%; height: 100%; background: white; justify-content: center; align-items: center; }
@@ -75,10 +78,7 @@
 
         @media (max-width: 768px) {
             .product-container { grid-template-columns: 1fr; }
-            .detail-gallery { 
-                grid-template-columns: 1fr; /* Stacked on mobile */
-                max-width: 600px;
-            }
+            .detail-gallery { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -88,9 +88,12 @@
         <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
         <a href="index.html" class="logo-nav">Maison en Cuir</a>
         <div class="nav-icons">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+            <div class="search-trigger" onclick="toggleSearch()">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+            </div>
             <a href="cart.html" style="color:inherit"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></a>
         </div>
+        <div id="search-bar"><input type="text" id="searchInput" placeholder="Search products..." onkeypress="handleSearch(event)"></div>
     </nav>
 
     <div class="mobile-menu" id="mobile-menu">
@@ -107,72 +110,68 @@
 
     <main class="product-container">
         <div>
-            <img src="c1.jpg" class="main-img-display" id="mainImg" onclick="openModal(this.src)">
+            <img src="c2.jpg" class="main-img-display" id="mainImg" onclick="openModal(this.src)">
             <div class="thumb-grid">
-                <img src="c1.jpg" class="active" onclick="updateMain(this)">
-                <img src="co2.jpg" onclick="updateMain(this)">
-                <img src="co3.jpg" onclick="updateMain(this)">
-                <img src="4.jpg" onclick="updateMain(this)">
+                <img src="c2.jpg" class="active" onclick="updateMain(this)">
+                <img src="co4.jpg" onclick="updateMain(this)">
+                <img src="co5.jpg" onclick="updateMain(this)">
+                <img src="co6.jpg" onclick="updateMain(this)">
             </div>
         </div>
-
-        <div class="product-details">
-            <h1>Mocha Vanity</h1>
-            <p class="price-line"> €115,00</p>
+ <div class="product-details">
+            <h1>Rouge Vanity</h1>
+            <p class="price-line">Regular price €115,00</p>
             <span class="status-tag">Waiting list</span>
-            <p style="font-size: 12px; opacity: 0.6; margin-bottom: 25px;">Shipping calculated at checkout.</p>
-
-            <div class="swatch-container">
-                <p style="font-size:14px;">Color: Mocha</p>
-                <div class="swatch-grid">
-                    <div class="swatch active"><span class="c-mocha"></span></div>
-                    <div class="swatch"><span class="c-rouge"></span></div>
-                    <div class="swatch"><span class="c-onyx"></span></div>
-                    <div class="swatch"><span class="c-blue"></span></div>
-                    <div class="swatch"><span class="c-nude"></span></div>
-                </div>
+            
+            <p style="font-size:14px;">Color: Rouge</p>
+            <div class="swatch-grid">
+                <a href="product-mocha.html" class="swatch"><span class="c-mocha"></span></a>
+                <div class="swatch active"><span class="c-rouge"></span></div>
+                <div class="swatch"><span class="c-onyx"></span></div>
+                <div class="swatch"><span class="c-blue"></span></div>
+                <div class="swatch"><span class="c-nude"></span></div>
             </div>
-<form class="waitlist-section" onsubmit="handleWaitlist(event)">
+
+            <form class="waitlist-section" onsubmit="handleWaitlist(event)">
                 <input type="text" placeholder="Enter your name" required>
                 <input type="email" placeholder="Enter your email" required>
                 <button type="submit" class="btn-waitlist" id="waitBtn">Join Waitlist</button>
-                <p style="font-size: 10px; opacity: 0.5; margin-top: 10px; line-height: 1.4;">By joining the waitlist, you agree to receive updates on this product's availability.</p>
             </form>
-
-            <label style="display:flex; align-items:center; gap:10px; font-family:var(--serif); cursor:pointer; margin-top:30px;">
-                <input type="checkbox" style="accent-color:var(--brand-brown)"> ADD YOUR INITIALS (+8€)
-            </label>
+            <p style="font-size: 10px; opacity: 0.5; margin-top: 10px;">By joining the waitlist, you agree to receive updates on this product's availability.</p>
         </div>
     </main>
 
     <section style="max-width:800px; margin:40px auto; padding:0 5%;">
         <p style="font-size:18px; margin-bottom:30px;">Crafted in pebbled leather and lined with soft suede, our Vanity opens fully for a clear view of your essentials. Inside, an elastic band keeps brushes and smaller items in place, while the removable main compartment fits daily beauty products, travel bottles, or jewelry.</p>
-        <p style="font-size:18px; margin-bottom:60px;">Made to sit beautifully on your dresser and built to travel, it keeps everything organized, wherever you’re getting ready.</p>
+        <p style="font-size:18px; margin-bottom:40px;">Made to sit beautifully on your dresser and built to travel, it keeps everything organized, wherever you’re getting ready.</p>
         
-        <h2 style="font-family:var(--serif); font-size:28px; font-style:italic; margin-bottom:25px;">À l’Intérieur</h2>
-        <ul style="list-style:none; line-height:2.2; font-size:16px;">
+        <h2 style="font-family:var(--serif); font-size:26px; font-style:italic; margin-bottom:20px;">À l’Intérieur</h2>
+        <ul style="list-style:none; line-height:2.2;">
             <li>— Wide opening for a clear view of your essentials.</li>
             <li>— Interior band to keep brushes and small items in place.</li>
             <li>— Smooth double-zip closure in gold-tone hardware.</li>
-            <li>— Structured design that maintains its shape</li>
-            <li>— Soft suede lining for a gentle finish</li>
-            <li>— Crafted in genuine pebbled leather</li>
+            <li>— Structured design that maintains its shape.</li>
+            <li>— Soft suede lining for a gentle finish.</li>
             <li>— Size: 15.2 cm x 21.6 cm x 14 cm.</li>
         </ul>
-
-        <h2 style="font-family:var(--serif); font-size:28px; font-style:italic; margin-top:60px; margin-bottom:15px;">Contact Us</h2>
-        <p>Email us at <a href="mailto:contact@maisonencuir.com" style="color:inherit">contact@maisonencuir.com</a></p>
     </section>
 
-    <div style="text-align:center; margin-top:80px;">
-        <p style="font-size:11px; text-transform:uppercase; letter-spacing:0.15em; opacity:0.5;">Seen in the hands and homes of our community</p>
-        <h3 style="font-family:var(--serif); font-size:26px; margin-top:8px;">@maisonencuir</h3>
-    </div>
+    <section class="reviews-container">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:40px;">
+            <h2 style="font-family:var(--serif); font-size:24px;">Customer Reviews</h2>
+            <button onclick="writeReview()" style="background:none; border:1px solid; padding:10px 20px; font-size:12px; cursor:pointer;">Write a review</button>
+        </div>
+        <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <p><strong>Ingrid</strong> <span style="font-size:12px; opacity:0.5; margin-left:10px;">12/04/2026</span></p>
+            <p style="margin-top:10px;">Beautiful vanity, absolutely love mine! Will be keeping an eye out for any drops in the future.</p>
+        </div>
+    </section>
 
     <div class="detail-gallery">
-        <img src="23.jpg" onclick="openModal(this.src)">
-        <img src="24.jpg" onclick="openModal(this.src)">
-        <img src="25.jpg" onclick="openModal(this.src)">
+        <img src="26.jpg" onclick="openModal(this.src)">
+        <img src="27.jpg" onclick="openModal(this.src)">
+        <img src="28.jpg" onclick="openModal(this.src)">
     </div>
 
     <div id="modal" class="modal">
@@ -180,34 +179,41 @@
         <img id="modalImg">
     </div>
 
-    <footer style="padding:80px 5%; text-align:center; background:#F4F1EC; border-top:1px solid rgba(0,0,0,0.05);">
-        <div class="footer-links" style="display:flex; justify-content:center; gap:20px; flex-wrap:wrap; margin-bottom:30px;">
-            <a href="privacy.html" style="text-decoration:none; color:inherit; font-size:10px; text-transform:uppercase;">Privacy Policy</a>
-            <a href="legal.html" style="text-decoration:none; color:inherit; font-size:10px; text-transform:uppercase;">Legal Notice</a>
-            <a href="refund.html" style="text-decoration:none; color:inherit; font-size:10px; text-transform:uppercase;">Refund Policy</a>
-            <a href="shipping.html" style="text-decoration:none; color:inherit; font-size:10px; text-transform:uppercase;">Shipping Policy</a>
-            <a href="terms.html" style="text-decoration:none; color:inherit; font-size:10px; text-transform:uppercase;">Terms of Service</a>
+    <footer>
+        <h3 style="font-family:var(--serif); font-size:28px; font-style:italic; margin-bottom:15px;">Rejoignez notre liste</h3>
+        <p style="opacity:0.6; margin-bottom:30px;">Occasional updates, new pieces, and select releases.</p>
+ <form style="max-width:400px; margin:0 auto; display:flex; gap:10px;" onsubmit="event.preventDefault(); alert('Merci de nous avoir rejoint !');">
+            <input type="email" placeholder="Enter your email to join" required style="flex:1; padding:10px; border:none; border-bottom:1px solid var(--brand-brown); background:transparent; outline:none;">
+            <button type="submit" style="background:none; border:none; border-bottom:1px solid; cursor:pointer; text-transform:uppercase; font-size:12px;">Join</button>
+        </form>
+
+        <div class="footer-links">
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="legal.html">Legal Notice</a>
+            <a href="refund.html">Refund Policy</a>
+            <a href="shipping.html">Shipping Policy</a>
+            <a href="terms.html">Terms of Service</a>
         </div>
-        <p style="font-size: 10px; opacity: 0.5;">© 2026 Maison en Cuir. All rights reserved.</p>
+        <p style="font-size: 10px; opacity: 0.5; margin-top: 40px;">© 2026 Maison en Cuir. All rights reserved.</p>
     </footer>
-<script>
+
+    <script>
         function toggleMenu() { document.getElementById('mobile-menu').classList.toggle('active'); }
+        function toggleSearch() { 
+            const s = document.getElementById('search-bar');
+            s.style.display = (s.style.display === 'block') ? 'none' : 'block';
+            if(s.style.display === 'block') document.getElementById('searchInput').focus();
+        }
+        function handleSearch(e) { if(e.key === 'Enter') { alert('Searching for: ' + e.target.value); e.target.value = ''; toggleSearch(); } }
         function updateMain(thumb) {
             document.getElementById('mainImg').src = thumb.src;
             document.querySelectorAll('.thumb-grid img').forEach(img => img.classList.remove('active'));
             thumb.classList.add('active');
         }
-        function openModal(src) {
-            document.getElementById('modalImg').src = src;
-            document.getElementById('modal').style.display = "flex";
-        }
+        function openModal(src) { document.getElementById('modalImg').src = src; document.getElementById('modal').style.display = "flex"; }
         function closeModal() { document.getElementById('modal').style.display = "none"; }
-        function handleWaitlist(e) {
-            e.preventDefault();
-            const btn = document.getElementById('waitBtn');
-            btn.innerHTML = "Success! You are on the list ✓";
-            btn.style.background = "#5A402D";
-        }
+        function writeReview() { alert('Review form opening soon!'); }
+        function handleWaitlist(e) { e.preventDefault(); document.getElementById('waitBtn').innerHTML = "Success! ✓"; }
     </script>
 </body>
 </html>
