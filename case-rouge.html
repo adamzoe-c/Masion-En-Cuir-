@@ -17,55 +17,271 @@
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { background-color: var(--cream); color: var(--brand-brown); font-family: var(--sans); -webkit-font-smoothing: antialiased; }
+        body { 
+            background-color: var(--cream); 
+            color: var(--brand-brown); 
+            font-family: var(--sans); 
+            -webkit-font-smoothing: antialiased; 
+        }
 
         /* --- NAVIGATION --- */
-        nav { display: flex; justify-content: center; align-items: center; padding: 40px 5%; position: relative; z-index: 1000; }
-        .logo-nav { font-family: var(--serif); font-size: 28px; text-decoration: none; color: var(--brand-brown); letter-spacing: 0.05em; }
-        .hamburger { position: absolute; left: 5%; display: flex; flex-direction: column; gap: 5px; cursor: pointer; }
-        .hamburger span { display: block; width: 22px; height: 1px; background-color: var(--brand-brown); }
-        .nav-icons { position: absolute; right: 5%; display: flex; gap: 20px; align-items: center; }
+        nav { 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            padding: 40px 5%; 
+            position: relative; 
+            z-index: 1000; 
+        }
+        .logo-nav { 
+            font-family: var(--serif); 
+            font-size: 28px; 
+            text-decoration: none; 
+            color: var(--brand-brown); 
+            letter-spacing: 0.05em; 
+        }
+        .hamburger { 
+            position: absolute; 
+            left: 5%; 
+            display: flex; 
+            flex-direction: column; 
+            gap: 5px; 
+            cursor: pointer; 
+        }
+        .hamburger span { 
+            display: block; 
+            width: 22px; 
+            height: 1px; 
+            background-color: var(--brand-brown); 
+        }
+        .nav-icons { 
+            position: absolute; 
+            right: 5%; 
+            display: flex; 
+            gap: 20px; 
+            align-items: center; 
+        }
 
-        #search-bar { position: absolute; top: 100%; left: 0; width: 100%; background: var(--cream); padding: 20px 5%; display: none; border-bottom: 1px solid rgba(0,0,0,0.05); }
-        #search-bar input { width: 100%; border: none; background: transparent; outline: none; font-family: var(--serif); font-size: 20px; color: var(--brand-brown); }
+        #search-bar { 
+            position: absolute; 
+            top: 100%; 
+            left: 0; 
+            width: 100%; 
+            background: var(--cream); 
+            padding: 20px 5%; 
+            display: none; 
+            border-bottom: 1px solid rgba(0,0,0,0.05); 
+        }
+        #search-bar input { 
+            width: 100%; 
+            border: none; 
+            background: transparent; 
+            outline: none; 
+            font-family: var(--serif); 
+            font-size: 20px; 
+            color: var(--brand-brown); 
+        }
 
-        .mobile-menu { position: fixed; top: 0; left: -100%; width: 100%; height: 100%; background: var(--cream); display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 25px; transition: 0.5s; z-index: 1050; }
+        .mobile-menu { 
+            position: fixed; 
+            top: 0; 
+            left: -100%; 
+            width: 100%; 
+            height: 100%; 
+            background: var(--cream); 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+            align-items: center; 
+            gap: 25px; 
+            transition: 0.5s; 
+            z-index: 1050; 
+        }
         .mobile-menu.active { left: 0; }
-        .mobile-menu a { font-family: var(--serif); font-size: 32px; text-decoration: none; color: var(--brand-brown); font-style: italic; }
+        .mobile-menu a { 
+            font-family: var(--serif); 
+            font-size: 32px; 
+            text-decoration: none; 
+            color: var(--brand-brown); 
+            font-style: italic; 
+        }
         .menu-socials { margin-top: 20px; display: flex; gap: 20px; }
-        .menu-socials a { font-size: 11px; text-transform: uppercase; border-bottom: 1px solid; font-style: normal; }
+        .menu-socials a { 
+            font-size: 11px; 
+            text-transform: uppercase; 
+            border-bottom: 1px solid; 
+            font-style: normal; 
+        }
 
         /* --- PRODUCT LAYOUT --- */
-        .product-container { display: grid; grid-template-columns: 1.2fr 1fr; gap: 60px; padding: 20px 5% 80px; max-width: 1400px; margin: 0 auto; }
-        .main-img-display { width: 100%; aspect-ratio: 1/1; object-fit: cover; background: #F4F1EC; cursor: zoom-in; margin-bottom: 15px; }
-        .thumb-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
-        .thumb-grid img { width: 100%; aspect-ratio: 1/1; object-fit: cover; cursor: pointer; opacity: 0.5; }
-        .thumb-grid img.active { opacity: 1; border: 1px solid var(--brand-brown); }
+        .product-container { 
+            display: grid; 
+            grid-template-columns: 1.2fr 1fr; 
+            gap: 60px; 
+            padding: 20px 5% 80px; 
+            max-width: 1400px; 
+            margin: 0 auto; 
+        }
+        
+        /* SWIPE GALLERY */
+        .swipe-gallery { 
+            display: flex; 
+            gap: 15px; 
+            overflow: auto; 
+            scroll-snap-type: x mandatory; 
+            scrollbar-width: none; 
+            margin-bottom: 20px;
+        }
+        .swipe-gallery::-webkit-scrollbar { display: none; }
+        
+        .swipe-item { 
+            flex: 0 0 100%; 
+            scroll-snap-align: start; 
+            background: #F4F1EC; 
+            aspect-ratio: 1/1;
+        }
+        .swipe-item img { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+            cursor: zoom-in; 
+        }
 
-        .product-details h1 { font-family: var(--serif); font-size: 38px; font-weight: 300; margin-bottom: 8px; }
+        .product-details h1 { 
+            font-family: var(--serif); 
+            font-size: 38px; 
+            font-weight: 300; 
+            margin-bottom: 8px; 
+        }
         .price-line { font-size: 18px; margin-bottom: 5px; }
-        .status-tag { font-size: 12px; color: var(--waiting-grey); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 25px; display: block; }
+        .status-tag { 
+            font-size: 12px; 
+            color: var(--waiting-grey); 
+            text-transform: uppercase; 
+            letter-spacing: 0.1em; 
+            margin-bottom: 25px; 
+            display: block; 
+        }
 
-        .waitlist-section { border-top: 1px solid rgba(0,0,0,0.05); padding-top: 30px; margin-top: 30px; }
-        .waitlist-section input { width: 100%; padding: 14px; margin-bottom: 12px; border: 1px solid rgba(0,0,0,0.1); background: transparent; outline: none; }
-        .btn-waitlist { width: 100%; padding: 16px; background: var(--waiting-grey); color: white; border: none; font-family: var(--serif); font-size: 18px; cursor: pointer; }
- /* --- IMAGES DETAIL --- */
-        .detail-gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; max-width: 1000px; margin: 80px auto 40px; padding: 0 5%; }
-        .detail-gallery img { width: 100%; aspect-ratio: 4/5; object-fit: cover; cursor: zoom-in; }
+        .waitlist-section { 
+            border-top: 1px solid rgba(0,0,0,0.05); 
+            padding-top: 30px; 
+            margin-top: 30px; 
+        }
+        .waitlist-section input { 
+            width: 100%; 
+            padding: 14px; 
+            margin-bottom: 12px; 
+            border: 1px solid rgba(0,0,0,0.1); 
+            background: transparent; 
+            outline: none; 
+        }
+        .btn-waitlist { 
+            width: 100%; 
+            padding: 16px; 
+            background: var(--waiting-grey); 
+            color: white; 
+            border: none; 
+            font-family: var(--serif); 
+            font-size: 18px; 
+            cursor: pointer; 
+        }
+
+        /* --- IMAGES DETAIL SECTION --- */
+        .detail-gallery { 
+            display: grid; 
+            grid-template-columns: repeat(3, 1fr); 
+            gap: 20px; 
+            max-width: 1000px; 
+            margin: 40px auto 80px; 
+            padding: 0 5%; 
+        }
+        .detail-gallery img { 
+            width: 100%; 
+            aspect-ratio: 4/5; 
+            object-fit: cover; 
+            cursor: zoom-in; 
+        }
+
+        /* --- LIGHTBOX / MODAL --- */
+        .modal { 
+            display: none; 
+            position: fixed; 
+            z-index: 3000; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 100%; 
+            background: rgba(255, 255, 255, 0.98); 
+            justify-content: center; 
+            align-items: center; 
+        }
+        .modal-content-wrapper { 
+            position: relative; 
+            width: 90%; 
+            height: 80%; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+        }
+        .modal img { 
+            max-width: 100%; 
+            max-height: 100%; 
+            object-fit: contain; 
+        }
+        
+        .close-modal { 
+            position: absolute; 
+            top: -40px; 
+            right: 0; 
+            font-size: 40px; 
+            cursor: pointer; 
+            font-weight: 200; 
+            color: var(--brand-brown); 
+        }
+        .nav-btn { 
+            position: absolute; 
+            top: 50%; 
+            transform: translateY(-50%); 
+            font-size: 40px; 
+            cursor: pointer; 
+            background: none; 
+            border: none; 
+            color: var(--brand-brown); 
+            padding: 20px;
+            user-select: none;
+        }
+        .prev-btn { left: -60px; }
+        .next-btn { right: -60px; }
 
         /* --- FOOTER --- */
-        footer { padding: 80px 5%; text-align: center; background: #F4F1EC; border-top: 1px solid rgba(0,0,0,0.05); }
-        .footer-links { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 40px; }
-        .footer-links a { text-decoration: none; color: inherit; font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; }
-
-        /* --- MODAL --- */
-        .modal { display: none; position: fixed; z-index: 3000; top: 0; left: 0; width: 100%; height: 100%; background: white; justify-content: center; align-items: center; }
-        .modal img { max-width: 90%; max-height: 90%; object-fit: contain; }
-        .close-modal { position: absolute; top: 20px; right: 30px; font-size: 50px; cursor: pointer; font-weight: 200; }
+        footer { 
+            padding: 80px 5%; 
+            text-align: center; 
+            background: #F4F1EC; 
+            border-top: 1px solid rgba(0,0,0,0.05); 
+        }
+        .footer-links { 
+            display: flex;
+ justify-content: center; 
+            gap: 20px; 
+            flex-wrap: wrap; 
+            margin-top: 40px; 
+        }
+        .footer-links a { 
+            text-decoration: none; 
+            color: inherit; 
+            font-size: 10px; 
+            text-transform: uppercase; 
+            letter-spacing: 0.1em; 
+        }
 
         @media (max-width: 768px) {
-            .product-container { grid-template-columns: 1fr; }
+            .product-container { grid-template-columns: 1fr; gap: 30px; }
             .detail-gallery { grid-template-columns: 1fr; }
+            .nav-btn { display: none; } 
+            .modal-content-wrapper { width: 95%; }
+            .close-modal { top: -50px; right: 10px; }
         }
     </style>
 </head>
@@ -96,12 +312,9 @@
     </div>
 
     <main class="product-container">
-        <div>
-            <img src="c4.jpg" class="main-img-display" id="mainImg" onclick="openModal(this.src)">
-            <div class="thumb-grid">
-                <img src="R2.jpg" class="active" onclick="updateMain(this)">
-                
-            </div>
+        <div class="swipe-gallery" id="productGallery">
+            <div class="swipe-item"><img src="c4.jpg" onclick="openModal(0)"></div>
+            <div class="swipe-item"><img src="R2.jpg" onclick="openModal(1)"></div>
         </div>
 
         <div class="product-details">
@@ -116,7 +329,8 @@
                 <button type="submit" class="btn-waitlist" id="waitBtn">Join Waitlist</button>
                 <p style="font-size: 10px; opacity: 0.5; margin-top: 10px; line-height: 1.4;">By joining the waitlist, you agree to receive updates on this product's availability.</p>
             </form>
-<label style="display:flex; align-items:center; gap:10px; font-family:var(--serif); cursor:pointer; margin-top:30px;">
+            
+            <label style="display:flex; align-items:center; gap:10px; font-family:var(--serif); cursor:pointer; margin-top:30px;">
                 <input type="checkbox" style="accent-color:var(--brand-brown)"> ADD YOUR INITIALS (+8€)
             </label>
         </div>
@@ -124,7 +338,7 @@
 
     <section style="max-width:800px; margin:40px auto; padding:0 5%;">
         <p style="font-size:18px; margin-bottom:30px; line-height:1.6;">Crafted in pebbled leather, our card cases are designed as everyday essentials, meant to be handled, carried, and lived with. Their structured silhouette keeps its shape, while the textured leather softens and develops character over time. Designed to move seamlessly from pocket to bag, they feel discreet yet considered, functional without excess.</p>
-        <p style="font-size:18px; margin-bottom:60px; line-height:1.6;">Finished with subtle Maison en Cuir detailing, these pieces are not trend-driven. They are designed to last, to age naturally, and to become part of your daily routine.</p>
+ <p style="font-size:18px; margin-bottom:60px; line-height:1.6;">Finished with subtle Maison en Cuir detailing, these pieces are not trend-driven. They are designed to last, to age naturally, and to become part of your daily routine.<p>
         
         <h2 style="font-family:var(--serif); font-size:28px; font-style:italic; margin-bottom:15px;">Contact Us</h2>
         <p>Email us at <a href="mailto:contact@maisonencuir.com" style="color:inherit">contact@maisonencuir.com</a></p>
@@ -136,14 +350,18 @@
     </div>
 
     <div class="detail-gallery">
-        <img src="32.jpg" onclick="openModal(this.src)">
-        <img src="33.jpg" onclick="openModal(this.src)">
-        <img src="34.jpg" onclick="openModal(this.src)">
+        <img src="33.jpg" onclick="openModal(2)">
+        <img src="34.jpg" onclick="openModal(3)">
+        <img src="35.jpg" onclick="openModal(4)">
     </div>
 
     <div id="modal" class="modal">
-        <span class="close-modal" onclick="closeModal()">×</span>
-        <img id="modalImg">
+        <div class="modal-content-wrapper">
+            <span class="close-modal" onclick="closeModal()">×</span>
+            <button class="nav-btn prev-btn" onclick="changeImage(-1)">&#8249;</button>
+            <img id="modalImg" src="">
+            <button class="nav-btn next-btn" onclick="changeImage(1)">&#8250;</button>
+        </div>
     </div>
 
     <footer>
@@ -171,14 +389,34 @@
             s.style.display = (s.style.display === 'block') ? 'none' : 'block';
         }
         function handleSearch(e) { if(e.key === 'Enter') { toggleSearch(); e.target.value = ''; } }
-        function updateMain(thumb) {
-            document.getElementById('mainImg').src = thumb.src;
-            document.querySelectorAll('.thumb-grid img').forEach(img => img.classList.remove('active'));
-            thumb.classList.add('active');
-        }
-        function openModal(src) { document.getElementById('modalImg').src = src; document.getElementById('modal').style.display = "flex"; }
- function closeModal() { document.getElementById('modal').style.display = "none"; }
         function handleWaitlist(e) { e.preventDefault(); document.getElementById('waitBtn').innerHTML = "Success! ✓"; }
+
+        // LIGHTBOX LOGIC
+        const images = ["c4.jpg", "R2.jpg", "33.jpg", "34.jpg", "35.jpg"];
+        let currentIdx = 0;
+
+        function openModal(index) {
+            currentIdx = index;
+            document.getElementById('modalImg').src = images[currentIdx];
+            document.getElementById('modal').style.display = "flex";
+            document.body.style.overflow = "hidden"; 
+        }
+
+        function closeModal() {
+            document.getElementById('modal').style.display = "none";
+            document.body.style.overflow = "auto";
+        }
+
+        function changeImage(step) {
+            currentIdx += step;
+            if (currentIdx >= images.length) currentIdx = 0;
+            if (currentIdx < 0) currentIdx = images.length - 1;
+            document.getElementById('modalImg').src = images[currentIdx];
+        }
+window.onclick = function(event) {
+            const modal = document.getElementById('modal');
+            if (event.target == modal) closeModal();
+        }
     </script>
 </body>
 </html>
